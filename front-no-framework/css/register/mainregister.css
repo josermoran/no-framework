@@ -1,0 +1,100 @@
+/* registermain.css */
+
+.backgroundmain {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    min-height: 100vh;
+    padding: var(--background-padding);
+    background: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: fixed;
+  }
+  
+  @media (max-width: 768px) {
+    .backgroundmain {
+      padding: 50px 10px 100px 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .backgroundmain {
+      padding: 30px 10px 60px 10px;
+    }
+  }
+  
+  .fullpositionreal {
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 499px;
+    position: absolute;
+    background: #F3F3F3;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  @media (max-width: 576px) {
+    .fullpositionreal {
+      width: 90%;
+      max-width: 375px;
+      max-height: 690px;
+      min-height: 680px;
+      bottom: 100px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .fullpositionreal {
+      top: 20%;
+      width: 100%;
+      max-width: 375px;
+      max-height: 690px;
+      min-height: 680px;
+      bottom: 100px;
+    }
+  }
+  
+  .formpos {
+    width: 100%;
+    max-width: 293px;
+    height: auto;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 15px;
+    display: inline-flex;
+  }
+  
+  @media (max-width: 768px) {
+    .formpos {
+      max-width: auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .formpos {
+      max-width: auto;
+    }
+  }
+  
+  .termsnconditions {
+    width: 283px;
+    height: 80px;
+    top: 445px;
+    position: absolute;
+    color: black;
+    font-size: 13px;
+    font-family: 'Reem Kufi Fun';
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+  

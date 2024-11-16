@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login/mainlogin.css">
+    <link rel="stylesheet" href="../css/login/login-res.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Reem+Kufi+Fun:wght@400..700&display=swap" rel="stylesheet">
+    <title>LaborSinFiltro</title>
+</head>
+
+<body>
+    <div class="backgroundmain">
+        <div class="fullpositionreal">
+            <div class="fullposition">
+                <div class="fullbck"></div>
+            </div>
+            <div class="formposition">
+                <div class="headerForm">
+                    <div class="Fbck"></div>
+                    <div class="Ftxt">Iniciar sesión</div>
+                </div>
+                <form id="loginForm">
+                    <div class="email">
+                        <div class="Ebck"></div>
+                        <input 
+                            class="Einpunt" 
+                            type="text" 
+                            required 
+                            placeholder="email/username" 
+                            id="email" 
+                        />
+                    </div>
+                    <div class="contra">
+                        <div class="contrabck"></div>
+                        <input 
+                            class="contrainput" 
+                            type="password" 
+                            id="contrasenia" 
+                            required 
+                            placeholder="contraseña" 
+                        />
+                    </div>
+                    <div class="continuarpositionlogin">
+                        <div class="continuar">
+                            <div class="continuarbck">
+                                <button type="submit" class="continuarbttn">Continuar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="nomembertxt">¿No eres miembro? ¡Regístrate!</div>
+                <div class="registerposition">
+                    <div class="registerreal">
+                        <div class="registerbcklogin">
+                            <button id="registerButton" class="registerbttn">Registrarse</button>
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Redirección al hacer clic en el botón de registro
+        document.getElementById('registerButton').addEventListener('click', function() {
+            window.location.href = 'register.html'; // Redirige a la página de registro
+        });
+    </script>
+</body>
+
+</html>

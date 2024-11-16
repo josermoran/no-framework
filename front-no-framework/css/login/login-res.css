@@ -1,0 +1,199 @@
+.headerForm {
+    width: 156px;
+    height: 39px;
+    position: relative;
+}
+
+.Fbck {
+    width: 156px;
+    height: 39px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: #D1F1FF;
+    border-radius: 20px;
+}
+
+.Ftxt {
+    width: 138px;
+    height: 35px;
+    left: 12px;
+    top: 4px;
+    position: absolute;
+    color: black;
+    font-size: 20px;
+    font-family: 'Reem Kufi Fun';
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.email {
+    width: 293px;
+    height: 42px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.Ebck {
+    width: 293px;
+    height: 42px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: white;
+    border-radius: 20px;
+}
+
+.Einpunt {
+    width: 292px;
+    height: 33px;
+    left: 9px;
+    top: 5px;
+    position: absolute;
+    color: black;
+    font-size: 20px;
+    font-family: 'Reem Kufi Fun';
+    font-weight: 400;
+    word-wrap: break-word;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.contra {
+    width: 293px;
+    height: 42px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.contrabck {
+    width: 293px;
+    height: 42px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 20px;
+}
+
+.contrainput {
+    width: 292px;
+    height: 33px;
+    left: 8px;
+    top: 5px;
+    position: absolute;
+    color: black;
+    font-size: 20px;
+    font-family: 'Reem Kufi Fun';
+    font-weight: 400;
+    word-wrap: break-word;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.contrainput:active + .contratxt {
+    display: none;
+}
+
+.continuarpositionlogin {
+    width: 293px;
+    height: 47px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    margin-top: 10px;
+}
+
+.continuar {
+    width: 293px;
+    height: 42px;
+    position: relative;
+}
+
+.continuarbck {
+    width: 293px;
+    height: 42px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: white;
+    border-radius: 20px;
+    transition: background-color 0.2s ease-in-out;
+    align-items: center;
+}
+
+.continuarbttn {
+    right: 12px;
+    width: 293px;
+    height: 38px;
+    position: relative;
+    color: black;
+    font-size: 20px;
+    font-family: 'Reem Kufi Fun';
+    font-weight: 400;
+    word-wrap: break-word;
+    background: none;
+    border: none;
+}
+
+.continuarbck:hover {
+    background: #D1F1FF;
+}
+
+.continuarbck:active {
+    background: #8ADAFC;
+}
+
+.registerposition {
+    width: 293px;
+    height: 47px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+}
+
+.registerreal {
+    width: 293px;
+    height: 42px;
+    position: relative;
+}
+
+.registerbcklogin {
+    width: 293px;
+    height: 42px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: white;
+    border-radius: 20px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.registerbttn {
+    width: 150px;
+    height: 38px;
+    left: 60px;
+    bottom: 6px;
+    position: absolute;
+    color: black;
+    font-size: 20px;
+    font-family: 'Reem Kufi Fun';
+    font-weight: 400;
+    word-wrap: break-word;
+    background: none;
+    border: none;
+}
+
+.registerbcklogin:hover {
+    background: #D1F1FF;
+}
+
+.registerbcklogin:active {
+    background: #8ADAFC;
+}

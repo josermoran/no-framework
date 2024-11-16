@@ -1,0 +1,74 @@
+/* login/mainlogin.css */
+
+@import "iniciar_session_components.css";
+@import "email_components.css";
+@import "contra_components.css";
+@import "continuar_components.css";
+@import "register_components.css";
+
+.backgroundmain {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: fixed;
+}
+
+.fullpositionreal {
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 499px;
+    position: absolute;
+    background: #F3F3F3;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fullposition {
+    width: 100%;
+    max-width: 499px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.formposition {
+    width: 100%;
+    max-width: 293px;
+    top: 143px;
+    height: auto;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 15px;
+    display: inline-flex;
+}
+
+.nomembertxt {
+    width: 100%;
+    max-width: 169px;
+    font-size: 13px;
+    font-family: 'Reem Kufi Fun';
+    font-weight: 400;
+    color: black;
+    word-wrap: break-word;
+}
