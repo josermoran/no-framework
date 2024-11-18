@@ -1,0 +1,309 @@
+/* Estilos generales */  
+body {  
+    font-family: sans-serif;  
+    margin: 0; /* Eliminar márgenes por defecto */  
+  }
+  
+  .backgroundmainfeed {  
+    background-color: #f0f0f0; /* Color de fondo gris claro */  
+  }
+  
+  /* Estilos del título */  
+  .tittlebox {  
+    background-color: #e0f7fa; /* Color de fondo azul claro */  
+    color: #212121; /* Color de texto gris oscuro */  
+    padding: 15px;  
+    text-align: center;  
+    font-size: 24px; /* Tamaño de fuente más grande para el título */  
+    font-weight: bold;  
+  }
+  
+  .logo {  
+    width: 100px; /* Ajustar el tamaño del logo */  
+    height: 50px; /* Ajustar el tamaño del logo */  
+    background-color: #2196f3; /* Color de fondo del logo (azul) */  
+    margin: 0 auto; /* Centrar el logo horizontalmente */  
+  }
+  
+  /* Estilos del divisor */  
+  .divisorline, .divisorline2 {  
+    border-left: 1px solid #bdbdbd; /* Borde gris claro */  
+    height: 100%; /* Altura completa */  
+    margin: 20px 0; /* Margen superior e inferior */  
+  }
+  
+  /* Estilos de la caja del feed */  
+  .feedbox {  
+    background-color: white;  
+    border-radius: 10px;  
+    padding: 20px;  
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */  
+    margin-bottom: 20px;  
+  }
+  
+  /* Estilos de la sección de tendencias */
+  .trendsNtittleposition {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .TNTbck {
+    background-color: white;
+  }
+  
+  .trendbox {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los tags se ajusten a varias líneas */
+  }
+  
+  .trendposition {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .fatittle {
+    color: #757575; /* Color de texto gris */
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .trendtxt {
+    background-color: #e3f2fd; /* Color de fondo azul muy claro */
+    color: #212121; /* Color de texto gris oscuro */
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+  
+  .trendtxt:hover {
+    background-color: #bbdefb; /* Color de fondo azul claro al pasar el ratón */
+  }
+  
+  .faiconposition {
+    width: 22px;
+    height: 24px;
+    padding-Left: 2.06px;
+    padding-Right: 2.06px;
+    padding-Top: 2.25px;
+    padding-Bottom: 2.25px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: none;
+    border-top-left-radius: 20px;
+    overflow: hidden;
+    flex-Direction: column;
+    justify-Content: center;
+    align-Items: center;
+    display: inline-flex;
+  }
+  
+  /* Estilos del área de crear publicación */  
+  .crearpostposition {  
+    background-color: white;  
+    border-radius: 10px;  
+    padding: 20px;  
+    margin-bottom: 20px;  
+  }
+  
+  .creatpostbck {
+    width: 796.79px;
+    height: 222.41px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-Radius: 20px;
+  }
+  
+  .inputtxt {
+    width: 715.74px;
+    height: 138.9px;
+    left: 66px;
+    top: 53px;
+    position: absolute;
+    color: black;
+    font-Size: 15px;
+    font-Family: Roboto Flex;
+    font-Weight: 300;
+    word-Wrap: break-word;
+    background: none;
+    border: none;
+    outline: none;
+    resize: none;
+  }
+  
+  .publicarposition {
+    width: 90.4px;
+    height: 35.76px;
+    left: 690px;
+    top: 180px;
+    position: absolute;
+    background: none;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    border-radius: 20px;
+  }
+  
+  .publicartxt {
+    width: 100.4px;
+    height: 35.76px;
+    padding-bottom: 20px;
+    position: relative;
+    color: white;
+    font-size: 14px;
+    background: none;
+    outline: none;
+    border: none;
+  }
+  
+  .sidebarpossition {
+    width: 48.89px;
+    height: 222.51px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+  }
+  
+  .sidebarbck {
+    width: 48.89px;
+    height: 222.51px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  
+  .commenticonposition {
+    width: 18.96px;
+    height: 23.06px;
+    left: 15px;
+    top: 88px;
+    position: absolute;
+    z-index: 3;
+  }
+  
+  .likeiconposition {
+    width: 25.94px;
+    height: 28.31px;
+    left: 11px;
+    top: 50px;
+    position: absolute;
+    z-index: 3;
+  }
+  
+  .topbarposition {
+    width: 797px;
+    height: 48.22px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+  }
+  
+  .tbback {
+    width: 797px;
+    height: 48.22px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  .tbtittle {
+    width: 469.34px;
+    height: 21.58px;
+    left: 66px;
+    top: 12px;
+    position: absolute;
+    color: black;
+    font-Size: 20px;
+    font-Family: Reem Kufi Fun;
+    font-Weight: 400;
+    word-Wrap: break-word;
+    background: none;
+    outline: none;
+    border: none;
+  }
+  
+  .usericonpositionPost {
+    width: 36.92px;
+    height: 40.89px;
+    left: 7px;
+    top: 0px;
+    position: absolute;
+    z-index: 3;
+  }
+  
+  .tagsposition {
+    width: 365px;
+    height: 31px;
+    left: 49px;
+    top: 178px;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .tagsbck {
+    width: 364.51px;
+    height: 23.46px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: none;
+  }
+  
+  .tag {
+    width: 115px;
+    height: 24px;
+    top: 7px;
+    position: relative;
+    margin-right: 20px;
+  }
+  
+  .tagtxt {
+    width: 86px;
+    height: 18px;
+    left: 29px;
+    top: 2px;
+    position: absolute;
+    color: black;
+    font-Size: 17px;
+    font-Family: Ropa Sans;
+    font-Weight: 400;
+    word-Wrap: break-word;
+    border: none;
+    outline: none;
+    background: none;
+  }
+  
+  .taiconposition {
+    width: 22px;
+    height: 24px;
+    padding-Left: 2.06px;
+    padding-Right: 2.06px;
+    padding-Top: 2.25px;
+    padding-Bottom: 2.25px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    flex-Direction: column;
+    justify-Content: center;
+    align-Items: center;
+    display: inline-flex;
+  }
+  
+  /* Estilos de la sección de grupos recientes */  
+  .gruposposition {  
+    background-color: white;  
+    border-radius: 10px;  
+    padding: 20px;  
+  }

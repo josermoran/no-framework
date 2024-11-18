@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Reem Kufi Fun', sans-serif;
+}
+
+.backgroundmainconfirm {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+.fullpositionreal {
+    top: 50%;
+    left: 50%;
+    width: 499px;
+    height: 499px;
+    position: absolute;
+    background: #F3F3F3;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.formpos {
+    width: 100%;
+    max-width: 293px;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+}
+
+.tittleposition {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.tittletxt {
+    color: black;
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.txtplain {
+    width: 322px;
+    color: black;
+    font-size: 17px;
+    font-weight: 400;
+    word-wrap: break-word;
+    margin: 20px 0;
+}
+
+.codigoposition {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.codigotxt {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.continuarposition {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.continuarbck {
+    padding: 12px 30px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.continuartxtconfirm {
+    color: white;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+.continuarbck:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 576px) {
+    .fullpositionreal {
+        width: 90%;
+        max-width: 375px;
+        max-height: 690px;
+        min-height: 680px;
+    }
+
+    .formpos {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .txtplain {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .fullpositionreal {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}

@@ -1,0 +1,204 @@
+/* Variables globales */
+:root {
+    --primary-color: #2196F3;
+    --primary-light: #D1F1FF;
+    --secondary-color: #585858;
+    --background-light: #F9F9F9;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border-radius: 20px;
+    --transition-speed: 0.3s;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos base */
+  .backgroundGP {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    min-height: 100vh;
+    padding: var(--background-padding);
+    background: linear-gradient(135deg, #ffffff 0%, var(--background-light) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+  }
+  
+  /* Líneas divisorias con efecto gradiente */
+  .divisorlinegp,
+  .divisorline2gp {
+    border-left: none;
+    width: 1px;
+    height: 83%;
+    background: linear-gradient(to bottom, transparent, var(--secondary-color), transparent);
+  }
+  
+  .divisorlinegp {
+    transform: translateX(-60px);
+  }
+  
+  .divisorline2gp {
+    transform: translateX(-35px);
+  }
+  
+  /* Feed Box mejorado */
+  .feedboxGP {
+    width: 1275px;
+    height: 85%;
+    top: 210px;
+    transform: translateX(-50px);
+    transition: all var(--transition-speed) ease;
+  }
+  
+  .GBbck,
+  .fabcksGP {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all var(--transition-speed) ease;
+  }
+  
+  .GBbck:hover,
+  .fabcksGP:hover {
+    background: var(--background-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Grupo Box mejorado */
+  .gbpos {
+    transition: transform var(--transition-speed) ease;
+  }
+  
+  .gruopIconGB {
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+  
+  .gruopIconGB:hover {
+    transform: scale(1.05);
+  }
+  
+  .gruopIconbckGB {
+    background: var(--primary-light);
+    transition: background-color var(--transition-speed) ease;
+  }
+  
+  /* Tipografía mejorada */
+  .groupName,
+  .empresaName {
+    color: var(--text-primary);
+    font-family: 'Reem Kufi Fun', sans-serif;
+    transition: color var(--transition-speed) ease;
+  }
+  
+  .grupoDes {
+    color: var(--text-secondary);
+    font-family: 'Roboto Flex', sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Botones mejorados */
+  .publicarposition {
+    background: var(--primary-color);
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease;
+  }
+  
+  .publicarposition:hover {
+    background: var(--primary-color);
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+  
+  .publicartxt {
+    color: white;
+    font-weight: 500;
+    transition: all var(--transition-speed) ease;
+  }
+  
+  /* Input mejorado */
+  .inputtxt {
+    font-family: 'Roboto Flex', sans-serif;
+    padding: 12px;
+    transition: all var(--transition-speed) ease;
+    border-radius: 8px;
+  }
+  
+  .inputtxt:focus {
+    background: rgba(33, 150, 243, 0.05);
+  }
+  
+  /* Tags mejorados */
+  .tag {
+    background: var(--background-light);
+    border-radius: 12px;
+    padding: 4px 12px;
+    transition: all var(--transition-speed) ease;
+  }
+  
+  .tag:hover {
+    background: var(--primary-light);
+    transform: translateY(-1px);
+  }
+  
+  /* Scrollbar personalizado */
+  .scrollboxGP,
+  .scrollboxcomments {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+  }
+  
+  .scrollboxGP::-webkit-scrollbar,
+  .scrollboxcomments::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollboxGP::-webkit-scrollbar-thumb,
+  .scrollboxcomments::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 3px;
+  }
+  
+  /* Media queries mejorados */
+  @media (max-width: 810px) {
+    .feedboxGP,
+    .GBbck,
+    .fabcksGP,
+    .scrollboxGP {
+      width: 95%;
+      margin: 0 auto;
+      transform: none;
+    }
+  
+    .empresaName {
+      font-size: 16px;
+    }
+  
+    .groupName {
+      font-size: 18px;
+    }
+  
+    .joinGroupPos,
+    .likeGroupPos {
+      transform: scale(0.9);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .backgroundGP {
+      padding: 20px 10px 40px;
+    }
+  
+    .tag {
+      margin-right: 10px;
+    }
+    
+    .publicarposition {
+      left: auto;
+      right: 20px;
+    }
+  }
