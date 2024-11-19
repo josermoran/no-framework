@@ -1,243 +1,307 @@
-/* confirmarcontra.css */
-
 .confirmposition {
-    width: 293px;
-    height: 42px;
-    top: 323px;
-    position: absolute;
-  }
-  
-  .confirmbck {
-    width: 293px;
-    height: 42px;
-    left: 0;
-    top: 0;
-    position: absolute;
-    background: white;
-    border-radius: 20px;
-  }
-  
-  .confirmtxt {
-    width: 280px;
-    height: 35px;
-    left: 11px;
-    top: 4px;
-    position: absolute;
-    color: black;
-    font-size: 20px;
-    font-family: 'Reem Kufi Fun';
-    font-weight: 400;
-    word-wrap: break-word;
-    background: none;
-    border: none;
-    outline: none;
-  }
-  
-  /* continuar.css */
-  
-  .continuarpositionreal {
-    width: 293px;
-    height: 47px;
-    padding-bottom: 5px;
-    top: 384px;
-    position: absolute;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    display: inline-flex;
-  }
-  
-  .continuar {
-    width: 293px;
-    height: 42px;
-    position: relative;
-  }
-  
-  .continuabck {
-    width: 293px;
-    height: 42px;
-    left: 0;
-    top: 0;
-    position: absolute;
-    background: white;
-    border-radius: 20px;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .continuartxtreal {
-    width: 293px;
-    height: 42px;
-    position: relative;
-    color: black;
-    font-size: 20px;
-    font-family: 'Reem Kufi Fun';
-    font-weight: 400;
-    word-wrap: break-word;
-    background: none;
-    border: none;
-    outline: none;
-  }
-  
-  .continuabck:hover {
-    background: #D1F1FF;
-  }
-  
-  .continuabck:active {
-    background: #8ADAFC;
-  }
-  
-  /* contra.css */
-  
-  .contraposition {
-    width: 293px;
-    height: 42px;
-    top: 262px;
-    position: absolute;
-  }
-  
-  .contrabck {
-    width: 293px;
-    height: 42px;
-    left: 0;
-    top: 0;
-    position: absolute;
-    background: white;
-    border-radius: 20px;
-  }
-  
-  .contratxt {
-    width: 280px;
-    height: 33px;
-    left: 8px;
-    top: 5px;
-    position: absolute;
-    color: black;
-    font-size: 20px;
-    font-family: 'Reem Kufi Fun';
-    font-weight: 400;
-    word-wrap: break-word;
-    background: none;
-    border: none;
-    outline: none;
-  }
-  
-  /* email.css */
-  
-  .emailposition {
-    width: 293px;
-    height: 42px;
-    top: 143px;
-    position: absolute;
-  }
-  
-  .emailbck {
-    width: 293px;
-    height: 42px;
-    left: 0;
-    top: 0;
-    position: absolute;
-    background: white;
-    border-radius: 20px;
-  }
-  
-  .emailtxt {
-    width: 280px;
-    height: 33px;
-    left: 9px;
-    top: 5px;
-    position: absolute;
-    color: black;
-    font-size: 20px;
-    font-family: 'Reem Kufi Fun';
-    font-weight: 400;
-    word-wrap: break-word;
-    background: none;
-    border: none;
-    outline: none;
-    overflow: hidden;
-  }
-  
-  /* tittle.css */
-  
-  .register {
-    width: 124px;
-    height: 39px;
-    top: 83px;
-    position: absolute;
-  }
-  
-  .registerbck {
-    width: 124px;
-    height: 39px;
-    left: 0;
-    top: 0;
-    position: absolute;
-    background: #D1F1FF;
-    border-radius: 20px;
-  }
-  
-  .registertxt {
-    width: 112px;
-    height: 35px;
-    left: 20px;
-    top: 4px;
-    position: absolute;
-    color: black;
-    font-size: 20px;
-    font-family: 'Reem Kufi Fun';
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
-  /* username.css */
-  
-  .Userposition {
-    width: 293px;
-    height: 42px;
-    top: 201px;
-    position: absolute;
-  }
-  
-  .Userbck {
-    width: 293px;
-    height: 42px;
-    left: 0;
-    top: 0;
-    position: absolute;
-    background: white;
-    border-radius: 20px;
-  }
-  
-  .Usertxt {
-    width: 280px;
-    height: 33px;
-    left: 9px;
-    top: 5px;
-    position: absolute;
-    color: black;
-    font-size: 20px;
-    font-family: 'Reem Kufi Fun';
-    font-weight: 400;
-    word-wrap: break-word;
-    background: none;
-    border: none;
-    outline: none;
-    overflow: hidden;
-  }
-  
+  width: 293px;
+  height: 42px;
+  top: 323px;
+  position: absolute;
+  transition: all 0.3s ease;
+}
 
-  .registerbttn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #007BFF; /* Cambia este valor para darle el color que quieras */
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-    border: none;
+.confirmbck {
+  width: 293px;
+  height: 42px;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.confirmtxt {
+  width: 280px;
+  height: 35px;
+  left: 11px;
+  top: 4px;
+  position: absolute;
+  color: black;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+  background: none;
+  border: none;
+  outline: none;
+  transition: color 0.3s ease;
+}
+
+.confirmtxt:focus {
+  color: #007BFF;
+}
+
+
+
+.continuarpositionreal {
+  height: 47px;
+  padding-bottom: 5px;
+  top: 384px;
+  position: absolute;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+}
+
+.continuar {
+  width: 293px;
+  height: 42px;
+  position: relative;
+}
+
+.continuabck {
+  width: 293px;
+  height: 42px;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: white;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.continuartxtreal {
+  width: 293px;
+  height: 42px;
+  position: relative;
+  color: black;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+  background: none;
+  border: none;
+  outline: none;
+  transition: color 0.3s ease;
+}
+
+.continuabck:hover {
+  background: #D1F1FF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.continuabck:active {
+  background: #8ADAFC;
+  transform: translateY(1px);
+}
+
+
+.contraposition {
+  width: 293px;
+  height: 42px;
+  top: 262px;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.contrabck {
+  width: 293px;
+  height: 42px;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.contratxt {
+  width: 280px;
+  height: 33px;
+  left: 8px;
+  top: 5px;
+  position: absolute;
+  color: black;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+  background: none;
+  border: none;
+  outline: none;
+  transition: color 0.3s ease;
+}
+
+.contratxt:focus {
+  color: #007BFF;
+}
+
+
+.emailposition {
+  width: 293px;
+  height: 42px;
+  top: 143px;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.emailbck {
+  width: 293px;
+  height: 42px;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.emailtxt {
+  width: 280px;
+  height: 33px;
+  left: 9px;
+  top: 5px;
+  position: absolute;
+  color: black;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+  background: none;
+  border: none;
+  outline: none;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.emailtxt:focus {
+  color: #007BFF;
+}
+
+
+
+.register {
+  width: 124px;
+  height: 39px;
+  top: 83px;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.registerbck {
+  width: 150px;
+  height: 39px;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: #D1F1FF;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.registertxt {
+  width: 112px;
+  height: 35px;
+  left: 20px;
+  top: 4px;
+  position: absolute;
+  color: black;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+  transition: color 0.3s ease;
+}
+
+.register:hover .registerbck {
+  background: #8ADAFC;
+}
+
+.register:hover .registertxt {
+  color: white;
+}
+
+/* username.css */
+
+.Userposition {
+  width: 293px;
+  height: 42px;
+  top: 201px;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.Userbck {
+  width: 293px;
+  height: 42px;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.Usertxt {
+  width: 280px;
+  height: 33px;
+  left: 9px;
+  top: 5px;
+  position: absolute;
+  color: black;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+  background: none;
+  border: none;
+  outline: none;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.Usertxt:focus {
+  color: #007BFF;
+}
+
+.registerposition { 
+  height: 47px;
+  padding-bottom: 5px;
+  top: 384px;
+  position: absolute;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+}
+
+.registerbttn {
+  display: inline-block;
+  padding: 10px 40px; 
+  font-size: 18px; 
+  color: white;
+  background-color: #007BFF;
+  text-decoration: none;
+  border-radius: 20px; 
+  text-align: center;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .registerbttn:hover {
-    background-color: #0056b3; /* Color para el hover */
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.registerbttn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
