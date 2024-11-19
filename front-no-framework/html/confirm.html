@@ -1,37 +1,136 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/confirmMain.css">
     <title>Confirmación de Código</title>
-    <link rel="stylesheet" href="confirm.css">
+    <style>
+        body {
+            font-family: 'Reem Kufi Fun', sans-serif;
+            background: #F3F3F3;
+            margin: 0;
+        }
+
+        .backgroundmainconfirm {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background: #f5f5f5;
+        }
+
+        .fullpositionreal {
+            width: 60%;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tittleposition {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tittletxt {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .txtplain {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .codigoposition {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .codigotxt {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .continuarposition {
+            display: flex;
+            justify-content: center;
+        }
+
+        .continuar button {
+            padding: 10px 20px;
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .continuar button:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
+
 <body>
     <div class="backgroundmainconfirm">
         <div class="fullpositionreal">
-            <form class="formpos">
+            <form id="confirmForm" onsubmit="return handleSubmit(event)">
                 <div class="tittleposition">
                     <div class="tittletxt">Confirmación vía correo electrónico</div>
                 </div>
-                <div class="txtplain">
-                    Ingresa el código de verificación que hemos enviado a tu correo electrónico "correo@correo.com"
-                </div>
+                <div class="txtplain">Ingresa el código de verificación que hemos enviado a tu correo electrónico “correo@correo.com”</div>
                 <div class="codigoposition">
-                    <input 
-                        class="codigotxt" 
-                        type="text" 
-                        placeholder="Código" 
-                        id="codigo" 
-                        required
-                    />
+                    <input class="codigotxt" type="text" placeholder="Código" id="codigo" required />
                 </div>
                 <div class="continuarposition">
-                    <button class="continuarbck">
+                    <button type="submit" class="continuarbck">
                         <div class="continuartxtconfirm">Continuar</div>
                     </button>
                 </div>
             </form>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const username = new URLSearchParams(window.location.search).get('username');
+            const baseurl = 'https://yourapiurl.com'; // Replace with actual base URL
+            let userId = '';
+            
+            const getUser = () => {
+                axios.get(`${baseurl}/api/usuario/miusuario/${username}`)
+                    .then((res) => {
+                        userId = res.data.usuario[0]._id;
+                    })
+                    .catch((error) => {
+                        console.error('Error obteniendo el usuario:', error);
+                    });
+            }
+
+            getUser();
+
+            window.handleSubmit = (e) => {
+                e.preventDefault();
+                const code = document.getElementById('codigo').value;
+                axios.post(`${baseurl}/api/login/${userId}/verify/${code}`)
+                    .then(() => {
+                        window.location.href = '/';
+                    })
+                    .catch((error) => {
+                        console.error('Error verificando el código:', error);
+                        alert('Código incorrecto, por favor inténtalo nuevamente.');
+                    });
+            }
+        });
+    </script>
 </body>
+
 </html>

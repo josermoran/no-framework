@@ -1,44 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group Feed</title>
-    <link rel="stylesheet" href="groupfeed.css">
+    <link rel="stylesheet" href="../css/groupfeed/maingroupfeed.css">
+    <title>Feed de Grupos</title>
+    <style>
+        body {
+            font-family: 'Reem Kufi Fun', sans-serif;
+            background: #F3F3F3;
+            margin: 0;
+        }
+
+        .backgroundGF {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .divisorlinegf, .divisorline2gf {
+            width: 80%;
+            height: 2px;
+            background: #007BFF;
+            margin: 20px 0;
+        }
+
+        .feedboxGF {
+            width: 100%;
+            max-width: 1200px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .tittlePos {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tittleText {
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .scrollboxGFeed {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .GPpos {
+            display: flex;
+            align-items: center;
+            background: #e8e8e8;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .gname {
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        .gmembers {
+            font-size: 16px;
+            margin-left: auto;
+        }
+    </style>
 </head>
+
 <body>
     <div class="backgroundGF">
-        <div class="divisorlinegf"></div>
         <div class="feedboxGF">
-            <div class="fapositionGFeed">
-                <div class="fabckGFeed"></div>
-                <div class="tittlePos">
-                    <div class="Tbck"></div>
-                    <div class="tittleText">
-                        descubre nuevas comunidades
-                    </div>
+            <div class="tittlePos">
+                <div class="tittleText">Descubre nuevas comunidades</div>
+            </div>
+            <div class="scrollboxGFeed">
+                <div class="GPpos" onclick="groupClick('Grupo1')">
+                    <div class="gname">Grupo 1</div>
+                    <div class="gmembers">Miembros: 100</div>
                 </div>
-                <div class="scrollboxGFeed">
-                    <div class="GPpos">
-                        <div class="gpback"></div>
-                        <div class="gpphoto"></div> 
-                        <div class="gname">Nombre del Grupo 1</div>
-                        <div class="gmembers">miembros<br></div>
-                        <div class="gemebercant">####</div>
-                    </div>
-                    
-                    <div class="GPpos">
-                        <div class="gpback"></div>
-                        <div class="gpphoto"></div> 
-                        <div class="gname">Nombre del Grupo 2</div>
-                        <div class="gmembers">miembros<br></div>
-                        <div class="gemebercant">####</div>
-                    </div>
-                    
-                    </div>
+                <div class="GPpos" onclick="groupClick('Grupo2')">
+                    <div class="gname">Grupo 2</div>
+                    <div class="gmembers">Miembros: 200</div>
+                </div>
+                <!-- Puedes agregar más grupos aquí -->
             </div>
         </div>
-        <div class="divisorline2gf"></div>
     </div>
+
+    <script>
+        function groupClick(grupoNombre) {
+            alert('Navegando al grupo: ' + grupoNombre);
+        }
+    </script>
 </body>
+
 </html>

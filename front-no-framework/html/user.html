@@ -1,53 +1,163 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/user/mainuserpage.css">
     <title>Página de Usuario</title>
-    <link rel="stylesheet" href="user.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Reem Kufi Fun', sans-serif;
+            background: #F3F3F3;
+            margin: 0;
+        }
+
+        .backgroundUserPage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background: #f5f5f5;
+        }
+
+        .sidebarposition {
+            width: 250px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: #ffffff;
+            border-right: 1px solid #ccc;
+            padding-top: 20px;
+        }
+
+        .sidebarposition a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            display: block;
+        }
+
+        .sidebarposition a:hover {
+            background: #D1F1FF;
+        }
+
+        .userbox {
+            margin-left: 270px;
+            width: 60%;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .postbox {
+            margin-left: 270px;
+            width: 60%;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .gruposRecientes {
+            margin-left: 270px;
+            width: 60%;
+            padding: 10px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .scrollboxUser {
+            margin-left: 270px;
+            overflow-y: auto;
+            max-height: 300px;
+            margin-bottom: 15px;
+        }
+
+        .scrollboxUser::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .scrollboxUser::-webkit-scrollbar-thumb {
+            background-color: #007BFF;
+            border-radius: 10px;
+        }
+    </style>
 </head>
+
 <body>
     <div class="backgroundUserPage">
-        <div class="feedboxUser">
-            <div class="faposition">
-                <div class="ubposition">
-                    <div class="userPositionUB">
-                        <div class="usericonbckUB">
-                            <div class="user-image-placeholder"></div>
-                        </div>
-                    </div>
-                    <div class="userInfoContainer">
-                        <div class="UserName">Nombre del Usuario</div>
-                        <div class="UserWork">Rol o Descripción</div>
-                        <div class="ubDescripcion">
-                            <div class="descripcionTxt">Aquí va una descripción del usuario que puede ser más larga.</div>
-                        </div>
-                    </div>
-                    <div class="togglehiddenPos">
-                        <div class="hidden-icon-placeholder"></div>
-                    </div>
-                    <div class="editProfilesPos">
-                        <button class="editbck">
-                            <span class="edit-icon-placeholder"></span>
-                            <span class="editProfileText">Editar perfil</span>
-                        </button>
-                    </div>
+        <!-- Barra lateral -->
+        <div class="sidebarposition">
+            <a href="feed.html">Inicio</a>
+            <a href="user.html">Perfil</a>
+            <a href="groupfeed.html">Grupos</a>
+            <a href="groupcreate.html">Crear Grupo</a>
+            <a href="register.html">Registrarse</a>
+        </div>
+
+        <!-- User Box -->
+        <div class="userbox">
+            <img src="../assets/User_duotone_line-1.svg" alt="User Icon" style="width: 50px; height: 50px;" />
+            <h2>Nombre de Usuario</h2>
+            <p>Trabaja en Empresa Ejemplo</p>
+            <button onclick="editarPerfil()">Editar Perfil</button>
+        </div>
+
+        <!-- Posts -->
+        <div class="scrollboxUser">
+            <div class="postbox">
+                <h3>Título del Post</h3>
+                <p>Contenido del post...</p>
+                <div class="acciones">
+                    <img src="../assets/favorito_blend.svg" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost()">
+                    <img src="../assets/comment_duotone_line.svg" alt="Comment Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="toggleComments()">
                 </div>
-                <div class="fabcks">
-                    <div class="lnpPosition">
-                        <button class="likesPos">
-                            <div class="likebttn"></div>
-                            <div class="likesTxt">Likes</div>
-                        </button>
-                        <button class="postpos">
-                            <div class="postbttncolored"></div>
-                            <div class="postTxt">Publicaciones</div>
-                        </button>
-                    </div>
+                <div id="comments" style="display: none;">
+                    <p>Comentario de ejemplo...</p>
                 </div>
             </div>
         </div>
+
+        <!-- Grupos Recientes -->
+        <div class="gruposRecientes">
+            <h3>Grupos Recientes</h3>
+            <p>Nombre del grupo 1</p>
+            <p>Nombre del grupo 2</p>
+        </div>
     </div>
+
+    <script>
+        function editarPerfil() {
+            alert('Editar perfil en desarrollo...');
+        }
+
+        function likePost() {
+            alert('Post liked!');
+        }
+
+        function toggleComments() {
+            const comments = document.getElementById('comments');
+            if (comments.style.display === 'none') {
+                comments.style.display = 'block';
+            } else {
+                comments.style.display = 'none';
+            }
+        }
+
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
 </body>
+
 </html>

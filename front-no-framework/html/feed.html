@@ -1,78 +1,161 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feed</title>
-    <link rel="stylesheet" href="feed.css"> 
+    <link rel="stylesheet" href="../css/feed/mainfeed.css">
+    <title>Feed Principal</title>
+    <style>
+        body {
+            font-family: 'Reem Kufi Fun', sans-serif;
+            background: #F3F3F3;
+            margin: 0;
+        }
+
+        .sidebarposition {
+            width: 250px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: #ffffff;
+            border-right: 1px solid #ccc;
+            padding-top: 20px;
+        }
+
+        .sidebarposition a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            display: block;
+        }
+
+        .sidebarposition a:hover {
+            background: #D1F1FF;
+        }
+
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+
+        .titulo {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .grupos-recientes {
+            background: #ffffff;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .grupo {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f7f7f7;
+            border-radius: 5px;
+        }
+
+        .crear-post {
+            background: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .crear-post input,
+        .crear-post textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .crear-post button {
+            padding: 10px 20px;
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .crear-post button:hover {
+            background: #0056b3;
+        }
+
+        .post {
+            background: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="backgroundmainfeed">
-        <div class="tittlebox">
-            <div class="backtittle">
-                <div class="logo"></div> 
-            </div>
+    <!-- Barra lateral -->
+    <div class="sidebarposition">
+        <a href="feed.html">Inicio</a>
+        <a href="user.html">Perfil</a>
+        <a href="groupfeed.html">Grupos</a>
+        <a href="groupcreate.html">Crear Grupo</a>
+        <a href="register.html">Registrarse</a>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        <div class="titulo">Feed Principal</div>
+
+        <!-- Crear Publicación -->
+        <div class="crear-post">
+            <h3>Crear Publicación</h3>
+            <input type="text" placeholder="Título de la publicación">
+            <textarea rows="4" placeholder="¿Qué está pasando?"></textarea>
+            <button>Publicar</button>
         </div>
-        <div class="divisorline"></div>
-        <div class="feedbox">
-            <div class="faposition">
-                <div class="fabck"></div>
-                <div class="scrollbox"> 
-                    <div class="trendsNtittleposition"> 
-                        <div class="TNTbck"></div>
-                        <div class="trendbox">
-                            <div class="trendposition">
-                                <div class="fatittle">tendencias</div>
-                            </div>
-                            <div class="trendposition">
-                                <div class="trendtxt">tag1</div>
-                                <div class="faiconposition"></div> 
-                            </div>
-                            <div class="trendposition">
-                                <div class="trendtxt">tag2</div>
-                                <div class="faiconposition"></div> 
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="crearpostposition"> 
-                        <div class="creatpostbck"></div>
-                        <textarea class="inputtxt" placeholder=".... que esta pasando?"></textarea>
-                        <div class="publicarposition">
-                            <button class="publicartxt">publicar</button>
-                        </div>
-                        <div class="sidebarpossition">
-                            <div class="sidebarbck"></div>
-                            <div class="commenticonposition"></div> 
-                            <div class="likeiconposition"></div> 
-                        </div>
-                        <div class="topbarposition">
-                            <div class="tbback"></div>
-                            <input class="tbtittle" type="text" placeholder="post tittle">
-                            <div class="usericonpositionPost"></div> 
-                        </div>
-                        <div class="tagsposition">
-                            <div class="tagsbck"></div>
-                            <div class="tag">
-                                <input class="tagtxt" type="text" placeholder="tag 3">
-                                <div class="taiconposition"></div> 
-                            </div>
-                            <div class="tag">
-                                <input class="tagtxt" type="text" placeholder="tag 2">
-                                <div class="taiconposition"></div> 
-                            </div>
-                            <div class="tag">
-                                <input class="tagtxt" type="text" placeholder="tag 1">
-                                <div class="taiconposition"></div> 
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            </div>
+
+        <!-- Lista de Publicaciones -->
+        <div class="post">
+            <h4>Título de una Publicación</h4>
+            <p>Este es un ejemplo de una publicación en el feed principal.</p>
+            <button>Comentar</button>
         </div>
-        <div class="divisorline2"></div>
-        <div class="gruposposition">
-            <div class="gruposbck"></div>
+
+        <div class="post">
+            <h4>Otra Publicación</h4>
+            <p>Contenido de otra publicación...</p>
+            <button>Comentar</button>
+        </div>
+
+        <!-- Grupos Recientes -->
+        <div class="grupos-recientes">
+            <h3>Grupos Recientes</h3>
+            <div class="grupo">Grupo 1</div>
+            <div class="grupo">Grupo 2</div>
+            <div class="grupo">Grupo 3</div>
         </div>
     </div>
+
+    <!-- Lógica de navegación -->
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Simular navegación con JavaScript
+            document.querySelectorAll('.sidebarposition a').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const href = e.target.getAttribute('href');
+                    window.location.href = href; // Redirige a la página correspondiente
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>
