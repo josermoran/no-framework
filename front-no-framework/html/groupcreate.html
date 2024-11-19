@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Grupo</title>
+    <link rel="stylesheet" href="groupcreate.css">
+</head>
+<body>
+    <div class="backgroundCG">
+        <div class="createbox">
+            <div class="createtittlebck">
+                <div class="createtittletxt">Crea tu grupo!!</div>
+                <img src="Close_square_light.svg" alt="Cerrar" class="CloseIcon">
+            </div>
+            <form class="inputform">
+                <div>Tipo de grupo</div>
+                <div>
+                    <label class="formtxt">
+                        <input type="checkbox" checked> Empresarial
+                    </label>
+                    <label class="formtxt">
+                        <input type="checkbox"> General
+                    </label>
+                </div>
+                <div class="inspos">
+                    <div>
+                        <label class="formtxt">
+                            <input type="checkbox"> Grupo Privado
+                        </label>
+                    </div>
+                </div>
+                <div class="inspos">
+                    <div class="formtxt">Nombre del grupo</div>
+                    <input class="formins" placeholder="Nombre" type="text">
+                </div>
+                <div class="inspos">
+                    <div class="formtxt">Empresa</div>
+                    <div>
+                        <select class="empresaSelector">
+                            <option value="">Selecciona una empresa</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="inspos">
+                    <div class="formtxt">Descripción del grupo</div>
+                    <textarea class="forminsDesc" placeholder="Descripción"></textarea>
+                </div>
+                <button class="bttncrear" type="submit">Crear Grupo</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
