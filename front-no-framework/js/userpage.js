@@ -107,7 +107,7 @@ async function likePost(likeIcon) {
     try {
         // Solicitud POST para dar "like" al post
         const response = await fetch(`${baseurl}/api/feed/${postId}`, {
-            method: 'POST',
+            method: 'PATCH',
             headers: headers,
             body: JSON.stringify({ action: 'like' })
         });
