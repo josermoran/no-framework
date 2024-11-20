@@ -1,100 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/user/mainuserpage.css">
+    <link rel="stylesheet" href="/front-no-framework/css/user/user.css">
     <title>Página de Usuario</title>
-    <style>
-        body {
-            font-family: 'Reem Kufi Fun', sans-serif;
-            background: #F3F3F3;
-            margin: 0;
-        }
-
-        .backgroundUserPage {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100vh;
-            background: #f5f5f5;
-        }
-
-        .sidebarposition {
-            width: 250px;
-            position: fixed;
-            left: 0;
-            top: 0;
-            height: 100%;
-            background: #ffffff;
-            border-right: 1px solid #ccc;
-            padding-top: 20px;
-        }
-
-        .sidebarposition a {
-            padding: 10px 15px;
-            text-decoration: none;
-            font-size: 18px;
-            color: black;
-            display: block;
-        }
-
-        .sidebarposition a:hover {
-            background: #D1F1FF;
-        }
-
-        .userbox {
-            margin-left: 270px;
-            width: 60%;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .postbox {
-            margin-left: 270px;
-            width: 60%;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 15px;
-        }
-
-        .gruposRecientes {
-            margin-left: 270px;
-            width: 60%;
-            padding: 10px;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-
-        .scrollboxUser {
-            margin-left: 270px;
-            overflow-y: auto;
-            max-height: 300px;
-            margin-bottom: 15px;
-        }
-
-        .scrollboxUser::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        .scrollboxUser::-webkit-scrollbar-thumb {
-            background-color: #007BFF;
-            border-radius: 10px;
-        }
-    </style>
-    <script src="../js/userpage.js" defer></script>
 </head>
-
 <body>
     <div class="backgroundUserPage">
         <div class="sidebarposition">
@@ -105,15 +16,27 @@
             <a href="register.html">Registrarse</a>
         </div>
 
-        <div class="userbox" id="userBox">
-            <img src="/front-no-framework/assets/User_duotone_line-1.svg" alt="User Icon" style="width: 50px; height: 50px;" />
-            <h2 id="username">Nombre de Usuario</h2>
-            <p id="userCompany">Trabaja en Empresa Ejemplo</p>
+        <div class="userbox">
+            <img src="/front-no-framework/assets/User_duotone_line-1.svg" alt="User Icon">
+            <h2>Nombre de Usuario</h2>
+            <p>Trabaja en Empresa X</p>
             <button onclick="editarPerfil()">Editar Perfil</button>
         </div>
 
-        <div class="scrollboxUser" id="postContainer">
-            <!-- Posts del usuario se renderizan aquí -->
+        <div class="scrollboxUser">
+            <div class="postbox">
+                <div class="faposition">
+                    <h3>Título del Post</h3>
+                    <p>Contenido del post...</p>
+                    <div class="acciones">
+                        <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon" onclick="likePost()">
+                        <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon" onclick="toggleComments()">
+                    </div>
+                    <div id="comments" style="display: none;">
+                        <p>Comentario de ejemplo...</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="gruposRecientes">
@@ -128,19 +51,18 @@
             alert('Editar perfil en desarrollo...');
         }
 
-        function likePost(postId) {
-            alert('Post ' + postId + ' liked!');
+        function likePost() {
+            alert('Post liked!');
         }
 
-        function toggleComments(postId) {
-            const comments = document.getElementById('comments-' + postId);
+        function toggleComments() {
+            const comments = document.getElementById('comments');
             if (comments.style.display === 'none') {
                 comments.style.display = 'block';
             } else {
                 comments.style.display = 'none';
             }
         }
-    </script>
+    </script> 1 
 </body>
-
 </html>
