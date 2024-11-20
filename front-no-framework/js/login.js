@@ -5,11 +5,14 @@ document.addEventListener('DOMContentLoaded', function () {
         loginForm.addEventListener('submit', function (event) {
             event.preventDefault(); 
 
+            // Captura los valores de los inputs del formulario
             const identifier = document.getElementById('email').value;
             const password = document.getElementById('contrasenia').value;
 
+            // Crea el objeto con los datos de inicio de sesión
             const loginData = { identifier, password };
 
+            // Realiza la petición POST al backend usando fetch
             fetch('http://localhost:3000/api/login/', {
                 method: 'POST',
                 headers: {
@@ -24,9 +27,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 return response.json();
             })
             .then(function (data) {
-                const usuarioid = data.token;
-                localStorage.setItem('token', usuarioid);
-                window.location.href = 'feed.html';
+                // Obtiene el token de usuario desde la respuesta
+                const token = data.token;
+
+                if (token) {
+                    // Almacena el token en localStorage para futuras peticiones
+                    localStorage.setItem('token', token);
+                    // Redirige al usuario al feed principal
+                    window.location.href = 'feed.html';
+                } else {
+                    throw new Error('Token no encontrado en la respuesta del servidor');
+                }
             })
             .catch(function (error) {
                 console.error('Error en el inicio de sesión:', error);
