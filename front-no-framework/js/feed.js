@@ -97,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
   
       const token = sessionStorage.getItem('authToken'); 
-      console.log(token)     
       if (!token) {
         alert("No estás autenticado. Por favor, inicia sesión.");
         return;
@@ -133,10 +132,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
   
         const newPost = await response.json();
-        console.log("Publicación creada:", newPost);
   
         // Añadir la nueva publicación directamente al DOM
-        addPostToDOM(newPost.post);
+        addPostToDOM(newPost);
   
         // Alternativamente, puedes volver a obtener todas las publicaciones:
         // obtenerPosts();
