@@ -1,3 +1,5 @@
+// feed.js
+
 const baseurl = "http://localhost:3000";
 const token = localStorage.getItem('token');
 
@@ -23,29 +25,29 @@ sidebarLinks.forEach((link) => {
 
 // Función para obtener los posts desde el backend
 const obtenerPosts = async () => {
-  try {
-    const response = await fetch(`${baseurl}/api/feed/`, {
-      method: 'GET',
-      headers: headers
-    });
-    if (!response.ok) {
-      throw new Error("Error obteniendo publicaciones");
+    try {
+      const response = await fetch(`${baseurl}/api/feed/`, {
+        method: 'GET',
+        headers: headers
+      });
+      if (!response.ok) {
+        throw new Error("Error obteniendo publicaciones");
+      }
+      const data = await response.json();
+      renderPosts(data.posts);
+    } catch (error) {
+      console.error("Error obteniendo las publicaciones:", error);
     }
-    const data = await response.json();
-    renderPosts(data.posts);
-  } catch (error) {
-    console.error("Error obteniendo las publicaciones:", error);
-  }
-};
+  };
 
 // Renderizar posts
 const renderPosts = (posts) => {
-  // Limpiar publicaciones actuales
+  // Limpiar las publicaciones actuales
   const existingPosts = document.querySelectorAll(".post");
   existingPosts.forEach(post => post.remove());
-
-  // Renderizar cada publicación
-  posts.forEach((post) => {
+  
+   // Renderizar cada publicación
+   posts.forEach((post) => {
     const postContainer = document.createElement("div");
     postContainer.className = "post";
     postContainer.innerHTML = `
@@ -63,20 +65,20 @@ const renderPosts = (posts) => {
 
 // Mostrar comentarios
 const mostrarComentarios = async (postId) => {
-  try {
-    const response = await fetch(`${baseurl}/api/post/${postId}/comments`, {
-      method: 'GET',
-      headers: headers
-    });
-    if (!response.ok) {
-      throw new Error("Error obteniendo comentarios");
+    try {
+      const response = await fetch(`${baseurl}/api/post/${postId}/comments`, {
+        method: 'GET',
+        headers: headers
+      });
+      if (!response.ok) {
+        throw new Error("Error obteniendo comentarios");
+      }
+      const data = await response.json();
+      renderComments(data.comments, postId);
+    } catch (error) {
+      console.error("Error obteniendo los comentarios:", error);
     }
-    const data = await response.json();
-    renderComments(data.comments, postId);
-  } catch (error) {
-    console.error("Error obteniendo los comentarios:", error);
-  }
-};
+  };
 
 // Renderizar comentarios
 const renderComments = (comments, postId) => {
@@ -113,7 +115,7 @@ publicarBtn.addEventListener("click", async (e) => {
     titulo,
     texto,
     grupo: null,
-    tagscontent: [], // Agregar tags si es necesario
+    tagscontent: [],
   };
 
   try {
@@ -134,8 +136,10 @@ publicarBtn.addEventListener("click", async (e) => {
     console.error("Error creando la publicación:", error);
   }
 
+  // Limpiar los campos del formulario
   document.getElementById("tituloPost").value = "";
   document.getElementById("contenidoPost").value = "";
 });
 
+// Cargar las publicaciones cuando la página esté lista
 document.addEventListener("DOMContentLoaded", obtenerPosts);
