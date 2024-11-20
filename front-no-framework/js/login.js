@@ -32,7 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (token) {
                     // Almacena el token en localStorage para futuras peticiones
+                    console.log(token)
+                    localStorage.setItem('authToken', token);
                     localStorage.setItem('token', token);
+                    sessionStorage.setItem('authToken', token);
                     // Redirige al usuario al feed principal
                     window.location.href = 'feed.html';
                 } else {

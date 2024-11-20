@@ -96,7 +96,8 @@ document.addEventListener("DOMContentLoaded", function () {
     publicarBtn.addEventListener("click", async (e) => {
       e.preventDefault();
   
-      const token = localStorage.getItem("token");
+      const token = sessionStorage.getItem('authToken'); 
+      console.log(token)     
       if (!token) {
         alert("No estás autenticado. Por favor, inicia sesión.");
         return;
