@@ -78,6 +78,7 @@
             margin-left: auto;
         }
     </style>
+    <script src="../js/groupfeed.js" defer></script>
 </head>
 
 <body>
@@ -86,25 +87,11 @@
             <div class="tittlePos">
                 <div class="tittleText">Descubre nuevas comunidades</div>
             </div>
-            <div class="scrollboxGFeed">
-                <div class="GPpos" onclick="groupClick('Grupo1')">
-                    <div class="gname">Grupo 1</div>
-                    <div class="gmembers">Miembros: 100</div>
-                </div>
-                <div class="GPpos" onclick="groupClick('Grupo2')">
-                    <div class="gname">Grupo 2</div>
-                    <div class="gmembers">Miembros: 200</div>
-                </div>
-                <!-- Puedes agregar más grupos aquí -->
+            <div class="scrollboxGFeed" id="groupListContainer">
+                <!-- Los grupos se cargarán aquí dinámicamente -->
             </div>
         </div>
     </div>
-
-    <script>
-        function groupClick(grupoNombre) {
-            alert('Navegando al grupo: ' + grupoNombre);
-        }
-    </script>
 </body>
 
 </html>

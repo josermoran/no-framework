@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/group/maincreategroup.css">
+    <link rel="stylesheet" href="../css/creategroup/maincreategroup.css">
     <title>Crear Grupo</title>
     <style>
         body {
@@ -14,20 +14,21 @@
         }
 
         .backgroundCG {
-            width: 100%;
-            height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             background: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
         }
 
         .createbox {
+            width: 100%;
+            max-width: 600px;
             background: #ffffff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
             position: relative;
         }
 
@@ -44,19 +45,19 @@
         }
 
         .CloseIcon {
-            width: 20px;
-            height: 20px;
             cursor: pointer;
+            width: 24px;
+            height: 24px;
         }
 
         .inputform {
             display: flex;
             flex-direction: column;
+            gap: 15px;
         }
 
         .formtxt {
-            margin-top: 10px;
-            margin-bottom: 5px;
+            font-size: 16px;
             font-weight: bold;
         }
 
@@ -65,10 +66,12 @@
         }
 
         .inspos {
-            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
 
-        .formins {
+        .formins, .empresaSelector {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
@@ -78,32 +81,25 @@
         .forminsDesc {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            resize: vertical;
-        }
-
-        .empresaSelector {
-            width: 100%;
-            padding: 10px;
+            height: 100px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
 
         .bttncrear {
+            padding: 15px;
             background: #007BFF;
-            color: #ffffff;
-            padding: 10px;
+            color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 15px;
         }
 
         .bttncrear:hover {
             background: #0056b3;
         }
     </style>
+    <script src="../js/creategroup.js" defer></script>
 </head>
 
 <body>
@@ -111,77 +107,38 @@
         <div class="createbox">
             <div class="createtittlebck">
                 <div class="createtittletxt">Crea tu grupo!!</div>
-                <img src="/front-no-framework/assets/Close_square_light.svg" class="CloseIcon" onclick="handleQuit()">
+                <img src="../assets/Close_square_light.svg" class="CloseIcon" onclick="handleClose()">
             </div>
-            <form class="inputform" onsubmit="submitHandler(event)">
-                <div>Tipo de grupo</div>
+            <form id="createGroupForm" class="inputform">
+                <div> Tipo de grupo</div>
                 <div>
-                    <label class="formtxt"><input type="checkbox" id="empresarial" class="custom-checkbox" checked>
+                    <label class="formtxt"><input type='checkbox' id="empresarialCheckbox" class="custom-checkbox" checked>
                         Empresarial</label>
-                    <label class="formtxt"><input type="checkbox" id="general">
+                    <label class="formtxt"><input type='checkbox' id="generalCheckbox">
                         General</label>
                 </div>
-                <div class="inspos" id="generalOptions" style="display:none;">
-                    <label class="formtxt"><input type="checkbox" id="priv">
+                <div class="inspos">
+                    <label class="formtxt"><input type='checkbox' id="privCheckbox">
                         Grupo Privado</label>
                 </div>
                 <div class="inspos">
-                    <div class="formtxt">Nombre del grupo</div>
-                    <input class="formins" placeholder="Nombre" type="text" id="nombre" required>
+                    <div class="formtxt"> Nombre del grupo </div>
+                    <input id="nombreGrupo" class="formins" placeholder="Nombre" type="text">
                 </div>
-                <div class="inspos" id="empresaOptions">
-                    <div class="formtxt">Empresa</div>
-                    <select id="empresaSelector" class="empresaSelector">
-                        <option value="empresa1">Empresa 1</option>
-                        <option value="empresa2">Empresa 2</option>
+                <div class="inspos">
+                    <div class="formtxt"> Empresa</div>
+                    <select id="empresaSelector" placeholder='empresas' class="empresaSelector">
+                        <!-- Opciones cargadas desde JavaScript -->
                     </select>
                 </div>
                 <div class="inspos">
-                    <div class="formtxt">Descripción del grupo</div>
-                    <textarea class="forminsDesc" placeholder="Descripción" id="descripcion" required></textarea>
+                    <div class="formtxt"> Descripcion del grupo</div>
+                    <textarea id="descripcionGrupo" class="forminsDesc" placeholder="Descripcion"></textarea>
                 </div>
                 <button type="submit" class="bttncrear">Crear Grupo</button>
             </form>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const empresarialCheckbox = document.getElementById('empresarial');
-            const generalCheckbox = document.getElementById('general');
-            const privCheckbox = document.getElementById('priv');
-            const empresaOptions = document.getElementById('empresaOptions');
-            const generalOptions = document.getElementById('generalOptions');
-
-            empresarialCheckbox.addEventListener('change', function () {
-                if (empresarialCheckbox.checked) {
-                    generalCheckbox.checked = false;
-                    generalOptions.style.display = 'none';
-                    empresaOptions.style.display = 'block';
-                }
-            });
-
-            generalCheckbox.addEventListener('change', function () {
-                if (generalCheckbox.checked) {
-                    empresarialCheckbox.checked = false;
-                    generalOptions.style.display = 'block';
-                    empresaOptions.style.display = 'none';
-                } else {
-                    generalOptions.style.display = 'none';
-                }
-            });
-        });
-
-        function handleQuit() {
-            window.location.href = 'feed.html';
-        }
-
-        function submitHandler(event) {
-            event.preventDefault();
-            alert('Grupo creado exitosamente!');
-            window.location.href = 'groupfeed.html';
-        }
-    </script>
 </body>
 
 </html>
