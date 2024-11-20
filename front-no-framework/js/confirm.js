@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 }
 
                 console.log('Código verificado correctamente');
-                window.location.href = '/';
+                window.location.href = './feed.js';
             } catch (error) {
                 console.error('Error verificando el código:', error);
                 alert('Código incorrecto, por favor inténtalo nuevamente.');
