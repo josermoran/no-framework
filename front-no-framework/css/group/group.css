@@ -108,6 +108,20 @@ html, body {
   cursor: pointer;
 }
 
+.tags {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.tag {
+  display: inline-block;
+  background: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin-right: 5px;
+}
+
 .new-post {
   background: #ffffff;
   padding: 20px;
