@@ -37,7 +37,7 @@ function cancelarEdicion(postId, title, text) {
         <h3>${title}</h3>
         <p>${text}</p>
         <div class="acciones">
-            <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${postId}">
+            <img src="${postBox.dataset.liked === 'true' ? '../assets/corazon.png' : '../assets/favorito blend.svg'}" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${postId}" data-liked="${postBox.dataset.liked}">
             <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="toggleComments('${postId}')">
             <img src="/front-no-framework/assets/trash.svg" alt="Eliminar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="eliminarPost('${postId}')">
             <img src="/front-no-framework/assets/edit.svg" alt="Editar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="editarPost('${postId}')">
@@ -69,7 +69,7 @@ async function guardarPost(postId) {
             <h3>${editedTitle}</h3>
             <p>${editedText}</p>
             <div class="acciones">
-                <img src="../assets/favorito blend.svg" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${postId}">
+                <img src="${postBox.dataset.liked === 'true' ? '../assets/corazon.png' : '../assets/favorito blend.svg'}" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${postId}" data-liked="${postBox.dataset.liked}">
                 <img src="../assets/comment_duotone_line.svg" alt="Comment Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="toggleComments('${postId}')">
                 <img src="../assets/trash.svg" alt="Eliminar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="eliminarPost('${postId}')">
                 <img src="../assets/edit.svg" alt="Editar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="editarPost('${postId}')">
@@ -103,21 +103,23 @@ async function eliminarPost(postId) {
 
 async function likePost(likeIcon) {
     const postId = likeIcon.getAttribute('data-post-id');
+    const liked = likeIcon.getAttribute('data-liked') === 'true';
 
     try {
         // Solicitud POST para dar "like" al post
         const response = await fetch(`${baseurl}/api/feed/${postId}`, {
             method: 'PATCH',
             headers: headers,
-            body: JSON.stringify({ action: 'like' })
+            body: JSON.stringify({ action: liked ? 'unlike' : 'like' })
         });
 
         if (!response.ok) {
             throw new Error('Error dando like al post');
         }
 
-        // Cambiar el color del ícono de "like"
-        likeIcon.style.filter = "hue-rotate(150deg)"; // Cambia el color para simular que se dio like
+        // Cambiar el ícono de "like" y actualizar el estado
+        likeIcon.src = liked ? '../assets/favorito blend.svg' : '../assets/corazon.png';
+        likeIcon.setAttribute('data-liked', liked ? 'false' : 'true');
     } catch (error) {
         console.error('Error al dar like:', error);
     }
@@ -161,11 +163,12 @@ const renderizarPublicaciones = (posts) => {
         const postBox = document.createElement('div');
         postBox.className = 'postbox';
         postBox.setAttribute('data-post-id', post._id);
+        postBox.setAttribute('data-liked', post.likes.includes(token) ? 'true' : 'false');
         postBox.innerHTML = `
             <h3>${post.titulo}</h3>
             <p>${post.texto}</p>
             <div class="acciones">
-                <img src="../assets/favorito blend.svg" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${post._id}">
+                <img src="${post.likes.includes(token) ? '../assets/corazon.png' : '../assets/favorito blend.svg'}" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${post._id}" data-liked="${post.likes.includes(token)}">
                 <img src="../assets/comment_duotone_line.svg" alt="Comment Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="toggleComments('${post._id}')">
                 <img src="../assets/trash.svg" alt="Eliminar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="eliminarPost('${post._id}')">
                 <img src="../assets/edit.svg" alt="Editar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="editarPost('${post._id}')">
