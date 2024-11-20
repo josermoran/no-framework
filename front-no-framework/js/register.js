@@ -14,20 +14,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 const registerData = { email, username, password };
 
                 try {
-                    const response = await axios.post(`${baseurl}/api/usuario/`, registerData, {
+                    const response = await fetch(`${baseurl}/api/usuario/`, {
+                        method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                        }
+                        },
+                        body: JSON.stringify(registerData),
                     });
 
-                    if (response.status === 200) {
-                        console.log('User created successfully');
-                        window.location.href = './confirm.html';
-                    } else {
-                        console.error('Error creando el usuario');
+                    if (!response.ok) {
+                        throw new Error('Error creando el usuario');
                     }
+
+                    console.log('User created successfully');
+                    window.location.href = './confirm.html';
                 } catch (error) {
                     console.error('Error creando el usuario:', error);
+                    alert('Error al crear el usuario. Por favor, inténtelo de nuevo.');
                 }
             } else {
                 alert('Las contraseñas no coinciden.');

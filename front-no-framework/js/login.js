@@ -10,21 +10,36 @@ document.addEventListener('DOMContentLoaded', function () {
             const identifier = document.getElementById('email').value;
             const password = document.getElementById('contrasenia').value;
 
-            // Realiza la petición POST al backend usando Axios
-            axios.post(`${baseurl}/api/login/`, { identifier, password })
-                .then(function (response) {
-                    // Obtén el token del usuario desde la respuesta
-                    const usuarioid = response.data.token;
+            // Crea un objeto con los datos de inicio de sesión
+            const loginData = { identifier, password };
 
-                    // Almacena el token en localStorage y redirige
-                    localStorage.setItem('token', usuarioid);
-                    window.location.href = 'feed.html';
-                })
-                .catch(function (error) {
-                    // Maneja el error en caso de credenciales incorrectas o error en el servidor
-                    console.error('Error en el inicio de sesión:', error);
-                    alert('Inicio de sesión fallido. Verifique sus credenciales.');
-                });
+            // Realiza la petición POST al backend usando fetch
+            fetch(`${baseurl}/api/login/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(loginData),
+            })
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+                return response.json();
+            })
+            .then(function (data) {
+                // Obtén el token del usuario desde la respuesta
+                const usuarioid = data.token;
+
+                // Almacena el token en localStorage y redirige
+                localStorage.setItem('token', usuarioid);
+                window.location.href = 'feed.html';
+            })
+            .catch(function (error) {
+                // Maneja el error en caso de credenciales incorrectas o error en el servidor
+                console.error('Error en el inicio de sesión:', error);
+                alert('Inicio de sesión fallido. Verifique sus credenciales.');
+            });
         });
     }
 
