@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css//user/user.css">
+    <link rel="stylesheet" href="../css/user/user.css">
     <title>Página de Usuario</title>
 </head>
 <body>
@@ -34,44 +34,39 @@
               <img src="../assets/favorito blend.svg" alt="Like Icon">
               
             </div>
-          </div>
-          <div class="faposition">
-            <h3>Título del Post 2</h3>
-            <p>Contenido del post 2...</p>
-            <div class="acciones">
-              <img src="/front-no-framework/assets/edit.svg" alt="Editar Icon" onclick="editarPost(2)"> 
-              <img src="/front-no-framework/assets/trash.svg" alt="Eliminar Icon" onclick="eliminarPost(2)"> 
-              <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon">
-              
-            </div>
-          </div>
-          <div class="faposition">
-            <h3>Título del Post 3</h3>
-            <p>Contenido del post 3...</p>
-            <div class="acciones">
-              <img src="/front-no-framework/assets/edit.svg" alt="Editar Icon" onclick="editarPost(3)"> 
-              <img src="/front-no-framework/assets/trash.svg" alt="Eliminar Icon" onclick="eliminarPost(3)"> 
-              <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon">
-              
-            </div>
-          </div>
-        </div>
   
-      </div>
+            <div class="post-container">
+                <div class="faposition">
+                    <h3>Título del Post 1</h3>
+                    <p>Contenido del post 1...</p>
+                    <div class="acciones">
+                        <img src="/front-no-framework/assets/edit.svg" alt="Editar Icon" onclick="editarPost(1)"> 
+                        <img src="/front-no-framework/assets/trash.svg" alt="Eliminar Icon" onclick="eliminarPost(1)"> 
+                        <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon" class="like-icon" data-post-id="1" onclick="likePost(this)">
+                    </div>
+                </div>
+                <div class="faposition">
+                    <h3>Título del Post 2</h3>
+                    <p>Contenido del post 2...</p>
+                    <div class="acciones">
+                        <img src="/front-no-framework/assets/edit.svg" alt="Editar Icon" onclick="editarPost(2)"> 
+                        <img src="/front-no-framework/assets/trash.svg" alt="Eliminar Icon" onclick="eliminarPost(2)"> 
+                        <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon" class="like-icon" data-post-id="2" onclick="likePost(this)">
+                    </div>
+                </div>
+                <div class="faposition">
+                    <h3>Título del Post 3</h3>
+                    <p>Contenido del post 3...</p>
+                    <div class="acciones">
+                        <img src="/front-no-framework/assets/edit.svg" alt="Editar Icon" onclick="editarPost(3)"> 
+                        <img src="/front-no-framework/assets/trash.svg" alt="Eliminar Icon" onclick="eliminarPost(3)"> 
+                        <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon" class="like-icon" data-post-id="3" onclick="likePost(this)">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
   
-    <script>
-      function editarPerfil() {
-        alert('Editar perfil en desarrollo...');
-      }
-  
-      function editarPost(postId) {
-        alert(`Editar post ${postId}`);
-      }
-  
-      function eliminarPost(postId) {
-        alert(`Eliminar post ${postId}`);
-      }
-    </script>
-  </body>
-  </html>
+    <script src="../js/userpage.js"></script>
+</body>
+</html>
