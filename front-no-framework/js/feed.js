@@ -36,7 +36,7 @@ const renderPosts = (posts) => {
   // Limpiar las publicaciones actuales
   const existingPosts = document.querySelectorAll(".post");
   existingPosts.forEach(post => post.remove());
-  
+
   // Renderizar cada publicación
   posts.forEach((post) => {
     const postContainer = document.createElement("div");
@@ -44,6 +44,9 @@ const renderPosts = (posts) => {
     postContainer.innerHTML = `
       <h4>${post.titulo}</h4>
       <p>${post.texto}</p>
+      <div class="tags">
+        ${post.tagscontent.map(tag => `<span class="tag">#${tag}</span>`).join(' ')}
+      </div>
       <button onclick="mostrarComentarios('${post._id}')">Comentar</button>
       <div id="comentarios-${post._id}" class="comentarios"></div>
     `;
@@ -96,11 +99,18 @@ publicarBtn.addEventListener("click", async (e) => {
     return;
   }
 
+  // Obtener el token almacenado en localStorage
+  const token = localStorage.getItem("token");
+  if (!token) {
+    alert("No estás autenticado. Por favor, inicia sesión.");
+    return;
+  }
+
   const postData = {
     titulo,
     texto,
     grupo: null,
-    tagscontent: [],
+    tagscontent: [], // Puedes modificar esto si quieres agregar etiquetas.
   };
 
   try {
@@ -108,6 +118,7 @@ publicarBtn.addEventListener("click", async (e) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`, // Añadir el token en los encabezados
       },
       body: JSON.stringify(postData),
     });
@@ -118,7 +129,7 @@ publicarBtn.addEventListener("click", async (e) => {
 
     const newPost = await response.json();
     console.log("Publicación creada:", newPost);
-    obtenerPosts();
+    obtenerPosts(); // Actualizar el feed para incluir la nueva publicación
   } catch (error) {
     console.error("Error creando la publicación:", error);
   }
