@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="tags">
         ${post.tags[0].content.map(tag => `<span class="tag">#${tag}</span>`).join('')}
       </div>
-      <button onclick="mostrarComentarios('${post._id}')">Comentar</button>
       <div id="comentarios-${post._id}" class="comentarios"></div>
     `;
     postListContainer.appendChild(postContainer);
@@ -105,8 +104,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const tag1 = document.getElementById("tag1").value;
     const tag2 = document.getElementById("tag2").value;
     const tag3 = document.getElementById("tag3").value;
+    const tag4 = document.getElementById("tag4").value;
 
-    const tagscontent = [tag1, tag2, tag3].filter(tag => tag.trim() !== "");
+    const tagscontent = [tag1, tag2, tag3, tag4].filter(tag => tag.trim() !== "");
 
     if (!titulo || !texto) {
       alert("Por favor, completa todos los campos antes de publicar.");
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titulo,
       texto,
       grupo: null,
-      tagscontent,
+      tagscontent: tagscontent
     };
 
     try {
