@@ -40,6 +40,7 @@ function cancelarEdicion(postId, title, text) {
             <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${postId}">
             <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="toggleComments('${postId}')">
             <img src="/front-no-framework/assets/trash.svg" alt="Eliminar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="eliminarPost('${postId}')">
+            <img src="/front-no-framework/assets/edit.svg" alt="Editar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="editarPost('${postId}')">
         </div>
         <div id="comments-${postId}" style="display: none;">
         </div>
@@ -71,6 +72,7 @@ async function guardarPost(postId) {
                 <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${postId}">
                 <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="toggleComments('${postId}')">
                 <img src="/front-no-framework/assets/trash.svg" alt="Eliminar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="eliminarPost('${postId}')">
+                <img src="/front-no-framework/assets/edit.svg" alt="Editar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="editarPost('${postId}')">
             </div>
             <div id="comments-${postId}" style="display: none;">
             </div>
@@ -139,7 +141,7 @@ const cargarUsuario = async () => {
 // Cargar publicaciones del usuario
 const cargarPublicaciones = async () => {
     try {
-        const response = await fetch(`${baseurl}/api/feed/user`, { headers });
+        const response = await fetch(`${baseurl}/api/post/findbyuser`, { headers });
         if (!response.ok) {
             throw new Error('Error obteniendo publicaciones del usuario');
         }
@@ -152,7 +154,7 @@ const cargarPublicaciones = async () => {
 
 // Renderizar publicaciones
 const renderizarPublicaciones = (posts) => {
-    const postContainer = document.getElementById('postContainer');
+    const postContainer = document.querySelector('.post-container');
     postContainer.innerHTML = '';
     posts.forEach((post) => {
         const postBox = document.createElement('div');
