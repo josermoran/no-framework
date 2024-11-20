@@ -2,8 +2,11 @@
 html, body {
   height: 100%; 
   margin: 0;
+  background-color: #f0f0f0;
 }
-
+  .backgroundmainfeed {  
+    background-color: #f0f0f0; /* Color de fondo gris claro */  
+  }
 /* Barra lateral */
 .sidebarposition {
   width: 250px;
@@ -52,9 +55,7 @@ html, body {
   margin-bottom: 20px;
 }
 
-.group-info {
 
-}
 
 .group-stats {
   display: flex;
@@ -74,20 +75,10 @@ html, body {
 }
 
 /* Contenedor de posts */
-.post-container { /* Estilos para el contenedor de posts */
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px; 
-  /* Elimina el scroll vertical del contenedor de posts */
-  /* overflow-y: auto; */ 
-  max-height: 500px; /* Ajusta la altura máxima del contenedor de posts */
-  margin-bottom: 15px; 
-}
+
 
 .faposition {
-  width: 100%; /* Ajusta el ancho a 100% */
+  width: 95%; /* Ajusta el ancho a 100% */
   padding: 30px; /* Aumenta el padding */
   background: #fff; 
   border-radius: 16px;
