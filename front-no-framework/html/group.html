@@ -48,21 +48,36 @@
             color: #007BFF;
             font-size: 16px;
         }
+
+        .backButton {
+            padding: 10px 20px;
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .backButton:hover {
+            background: #0056b3;
+        }
     </style>
 </head>
 
 <body>
     <div class="backgroundGP">
+        <button class="backButton" onclick="goBack()">Regresar</button>
         <div class="gspos">
             <div class="grupoName">Nombre del Grupo</div>
             <div class="grupoDes">Descripción del Grupo</div>
             <div class="publiamountpos">
                 <div class="publiamountTxt">Publicaciones</div>
-                <div class="publiNmembernumber">#10</div>
+                <div class="publiNmembernumber">#0</div>
             </div>
             <div class="memberamntpos">
                 <div class="membertxt">Miembros</div>
-                <div class="publiNmembernumber">#25</div>
+                <div class="publiNmembernumber">#0</div>
             </div>
         </div>
         <div class="divisorlinegp"></div>
@@ -71,12 +86,7 @@
             <!-- Puedes agregar más detalles o secciones aquí -->
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Agrega tu lógica para obtener los detalles del grupo y renderizarlos
-        });
-    </script>
+    <script src="../js/group.js" defer></script>
 </body>
 
 </html>

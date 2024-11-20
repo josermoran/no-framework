@@ -99,38 +99,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const username = new URLSearchParams(window.location.search).get('username');
-            const baseurl = 'https://yourapiurl.com'; // Replace with actual base URL
-            let userId = '';
-            
-            const getUser = () => {
-                axios.get(`${baseurl}/api/usuario/miusuario/${username}`)
-                    .then((res) => {
-                        userId = res.data.usuario[0]._id;
-                    })
-                    .catch((error) => {
-                        console.error('Error obteniendo el usuario:', error);
-                    });
-            }
-
-            getUser();
-
-            window.handleSubmit = (e) => {
-                e.preventDefault();
-                const code = document.getElementById('codigo').value;
-                axios.post(`${baseurl}/api/login/${userId}/verify/${code}`)
-                    .then(() => {
-                        window.location.href = '/';
-                    })
-                    .catch((error) => {
-                        console.error('Error verificando el código:', error);
-                        alert('Código incorrecto, por favor inténtalo nuevamente.');
-                    });
-            }
-        });
-    </script>
+    <script src="../js/confirm.js"></script>
 </body>
 
 </html>
