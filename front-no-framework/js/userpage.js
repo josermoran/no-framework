@@ -159,6 +159,7 @@ const renderizarPublicaciones = (posts) => {
     posts.forEach((post) => {
         const postBox = document.createElement('div');
         postBox.className = 'postbox';
+        postBox.setAttribute('data-post-id', post._id);
         postBox.innerHTML = `
             <h3>${post.titulo}</h3>
             <p>${post.texto}</p>
