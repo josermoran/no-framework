@@ -3,7 +3,7 @@
 const baseurl = "http://localhost:3000";
 
 // Obtener el token del almacenamiento local
-const token = localStorage.getItem('token');
+const token = sessionStorage.getItem('authToken');
 if (!token) {
     alert('No estás autenticado. Por favor, inicia sesión.');
     window.location.href = 'login.html';
