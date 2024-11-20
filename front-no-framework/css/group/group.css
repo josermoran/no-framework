@@ -134,3 +134,12 @@ body {
   cursor: pointer;
   margin-top: 10px;
 }
+
+.new-post input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0; /* Ajusta el margen para separar los inputs */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  display: block; /* Fuerza a que los inputs ocupen todo el ancho y se apilen */
+}

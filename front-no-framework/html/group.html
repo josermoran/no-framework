@@ -52,24 +52,24 @@
           <h3>Título del Post 1</h3>
           <p>Contenido del post 1...</p>
           <div class="acciones">
-            <img src="../assets/favorito blend.svg" alt="Like Icon">
-            <img src="../assets/comment_duotone_line.svg" alt="Comment Icon">
+            <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon">
+            <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon">
           </div>
         </div>
         <div class="faposition">
           <h3>Título del Post 2</h3>
           <p>Contenido del post 2...</p>
           <div class="acciones">
-            <img src="../assets/favorito blend.svg" alt="Like Icon">
-            <img src="../assets/comment_duotone_line.svg" alt="Comment Icon">
+            <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon">
+            <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon">
           </div>
         </div>
         <div class="faposition">
           <h3>Título del Post 3</h3>
           <p>Contenido del post 3...</p>
           <div class="acciones">
-            <img src="../assets/favorito blend.svg" alt="Like Icon">
-            <img src="../assets/comment_duotone_line.svg" alt="Comment Icon">
+            <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon">
+            <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon">
           </div>
         </div>
       </div>
@@ -77,7 +77,6 @@
 
   </div>
 
-  <script src="script.js"></script>
   <script>
     function agregarPost() {
       // Obtener el título del nuevo post
@@ -89,7 +88,8 @@
       const tag1 = document.getElementById('tag1').value;
       const tag2 = document.getElementById('tag2').value;
       const tag3 = document.getElementById('tag3').value;
-      const tag4 = document.getElementById('tag4').value;
+      const tag4 = document.getElementById('tag4').value;   
+
 
       // Validar que el texto no esté vacío
       if (newPostText.trim() === '') {
@@ -125,7 +125,8 @@
       document.getElementById('tag2').value = '';
       document.getElementById('tag3').value = '';
       document.getElementById('tag4').value = '';
-      document.getElementById('new-post-title').value = '';
+      document.getElementById('new-post-title').value   
+ = '';
     }
   </script>
 </body>
