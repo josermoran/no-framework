@@ -5,18 +5,15 @@ document.addEventListener('DOMContentLoaded', function () {
         registerForm.addEventListener('submit', async function (event) {
             event.preventDefault();
 
-            // Obtener valores de los inputs del formulario
             const email = document.getElementById('email').value;
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
 
-            // Verificar si las contraseñas coinciden
             if (password === confirmPassword) {
                 const registerData = { email, username, password };
 
                 try {
-                    // Petición POST al backend con los datos del registro
                     const response = await fetch('http://localhost:3000/api/usuario/', {
                         method: 'POST',
                         headers: {

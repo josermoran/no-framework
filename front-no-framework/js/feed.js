@@ -1,12 +1,16 @@
-// feed.js
-
 const baseurl = "http://localhost:3000";
+const token = localStorage.getItem('token');
 
 // Obtener elementos del DOM
 const crearPostForm = document.querySelector(".crear-post");
 const publicarBtn = document.getElementById("publicarBtn");
 const postListContainer = document.querySelector(".content");
 const sidebarLinks = document.querySelectorAll(".sidebarposition a");
+
+const headers = {
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json'
+};
 
 // Evento para manejar la navegación
 sidebarLinks.forEach((link) => {
@@ -20,7 +24,10 @@ sidebarLinks.forEach((link) => {
 // Función para obtener los posts desde el backend
 const obtenerPosts = async () => {
   try {
-    const response = await fetch(`${baseurl}/api/feed/`);
+    const response = await fetch(`${baseurl}/api/feed/`, {
+      method: 'GET',
+      headers: headers
+    });
     if (!response.ok) {
       throw new Error("Error obteniendo publicaciones");
     }
@@ -33,10 +40,10 @@ const obtenerPosts = async () => {
 
 // Renderizar posts
 const renderPosts = (posts) => {
-  // Limpiar las publicaciones actuales
+  // Limpiar publicaciones actuales
   const existingPosts = document.querySelectorAll(".post");
   existingPosts.forEach(post => post.remove());
-  
+
   // Renderizar cada publicación
   posts.forEach((post) => {
     const postContainer = document.createElement("div");
@@ -44,6 +51,9 @@ const renderPosts = (posts) => {
     postContainer.innerHTML = `
       <h4>${post.titulo}</h4>
       <p>${post.texto}</p>
+      <div class="tags">
+        ${post.tagscontent.map(tag => `<span class="tag">#${tag}</span>`).join(' ')}
+      </div>
       <button onclick="mostrarComentarios('${post._id}')">Comentar</button>
       <div id="comentarios-${post._id}" class="comentarios"></div>
     `;
@@ -54,7 +64,10 @@ const renderPosts = (posts) => {
 // Mostrar comentarios
 const mostrarComentarios = async (postId) => {
   try {
-    const response = await fetch(`${baseurl}/api/post/${postId}/comments`);
+    const response = await fetch(`${baseurl}/api/post/${postId}/comments`, {
+      method: 'GET',
+      headers: headers
+    });
     if (!response.ok) {
       throw new Error("Error obteniendo comentarios");
     }
@@ -100,15 +113,13 @@ publicarBtn.addEventListener("click", async (e) => {
     titulo,
     texto,
     grupo: null,
-    tagscontent: [],
+    tagscontent: [], // Agregar tags si es necesario
   };
 
   try {
     const response = await fetch(`${baseurl}/api/post/`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: headers,
       body: JSON.stringify(postData),
     });
 
@@ -123,10 +134,8 @@ publicarBtn.addEventListener("click", async (e) => {
     console.error("Error creando la publicación:", error);
   }
 
-  // Limpiar los campos del formulario
   document.getElementById("tituloPost").value = "";
   document.getElementById("contenidoPost").value = "";
 });
 
-// Cargar las publicaciones cuando la página esté lista
 document.addEventListener("DOMContentLoaded", obtenerPosts);
