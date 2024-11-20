@@ -47,84 +47,11 @@
         <button onclick="agregarPost()">Agregar Post</button>
       </div>
 
-      <div class="post-container"> <div> 
-        <div class="faposition">
-          <h3>Título del Post 1</h3>
-          <p>Contenido del post 1...</p>
-          <div class="acciones">
-            <img src="../assets/favorito blend.svg" alt="Like Icon">
-          </div>
-        </div>
-        <div class="faposition">
-          <h3>Título del Post 2</h3>
-          <p>Contenido del post 2...</p>
-          <div class="acciones">
-            <img src="../assets/favorito blend.svg" alt="Like Icon">
-          </div>
-        </div>
-        <div class="faposition">
-          <h3>Título del Post 3</h3>
-          <p>Contenido del post 3...</p>
-          <div class="acciones">
-            <img src="../assets/favorito blend.svg" alt="Like Icon">
-          </div>
-        </div>
-      </div> <div> 
+      <div class="post-container"></div>
     </div>
 
   </div>
 
-  <script>
-    function agregarPost() {
-      // Obtener el título del nuevo post
-      const newPostTitle = document.getElementById('new-post-title').value;
-
-      // Obtener el texto del nuevo post
-      const newPostText = document.getElementById('new-post-text').value;
-      // Obtener los tags
-      const tag1 = document.getElementById('tag1').value;
-      const tag2 = document.getElementById('tag2').value;
-      const tag3 = document.getElementById('tag3').value;
-      const tag4 = document.getElementById('tag4').value;   
-
-
-      // Validar que el texto no esté vacío
-      if (newPostText.trim() === '') {
-        alert('Por favor, escribe algo en tu publicación.');
-        return;
-      }
-
-      // Crear un nuevo elemento div para el post
-      const newPostDiv = document.createElement('div');
-      newPostDiv.classList.add('faposition');
-      newPostDiv.innerHTML = `
-                <h3>${newPostTitle}</h3>
-                <p>${newPostText}</p>
-                <div class="acciones">
-                    <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon">
-                    <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon">
-                </div>
-                <div class="tags">
-                    ${tag1 ? `<span class="tag">${tag1}</span>` : ''}
-                    ${tag2 ? `<span class="tag">${tag2}</span>` : ''}
-                    ${tag3 ? `<span class="tag">${tag3}</span>` : ''}
-                    ${tag4 ? `<span class="tag">${tag4}</span>` : ''}
-                </div>
-            `;
-
-      // Agregar el nuevo post al contenedor de posts
-      const postContainer = document.querySelector('.post-container'); // Seleccionar el contenedor de posts
-      postContainer.appendChild(newPostDiv); // Agregar el nuevo post al contenedor
-
-      // Limpiar el textarea, los inputs de tags y el título
-      document.getElementById('new-post-text').value = '';
-      document.getElementById('tag1').value = '';
-      document.getElementById('tag2').value = '';
-      document.getElementById('tag3').value = '';
-      document.getElementById('tag4').value = '';
-      document.getElementById('new-post-title').value   
- = '';
-    }
-  </script>
+  <script src="../js/group.js"></script>
 </body>
 </html>

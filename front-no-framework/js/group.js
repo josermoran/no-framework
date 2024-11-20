@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Función para obtener las publicaciones del grupo desde el backend
     const getGroupPosts = async () => {
         try {
-            const response = await fetch(`${baseurl}/api/post/grupo/${grupoId}`);
+            const response = await fetch(`${baseurl}/api/post/grupo/${grupoId}`, { method: 'GET' });
             if (!response.ok) {
                 throw new Error("Error obteniendo las publicaciones del grupo");
             }
@@ -57,38 +57,46 @@ document.addEventListener("DOMContentLoaded", function () {
         posts.forEach((post) => {
             const postBox = document.createElement('div');
             postBox.className = 'faposition';
+            postBox.setAttribute('data-post-id', post._id);
+            postBox.setAttribute('data-liked', post.likes.includes(sessionStorage.getItem('authToken')) ? 'true' : 'false');
             postBox.innerHTML = `
                 <h3>${post.titulo}</h3>
                 <p>${post.texto}</p>
+                <div class="tags">
+                    ${post.tags[0]?.content?.map(tag => `<span class="tag">#${tag}</span>`).join('') || ''}
+                </div>
                 <div class="acciones">
-                    <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${post._id}">
-                    <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="toggleComments('${post._id}')">
+                    <img src="${post.likes.includes(sessionStorage.getItem('authToken')) ? '../assets/corazon.png' : '../assets/favorito blend.svg'}" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${post._id}" data-liked="${post.likes.includes(sessionStorage.getItem('authToken'))}">
                 </div>
             `;
             postContainer.appendChild(postBox);
         });
     };
+    
 
     // Función para dar like a una publicación
     async function likePost(likeIcon) {
         const postId = likeIcon.getAttribute('data-post-id');
+        const liked = likeIcon.getAttribute('data-liked') === 'true';
 
         try {
-            // Solicitud POST para dar "like" al post
+            // Solicitud POST para dar "like" o "unlike" al post
             const response = await fetch(`${baseurl}/api/feed/${postId}`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('authToken')}`
                 },
-                body: JSON.stringify({ action: 'like' })
+                body: JSON.stringify({ action: liked ? 'unlike' : 'like' })
             });
 
             if (!response.ok) {
                 throw new Error('Error dando like al post');
             }
 
-            // Cambiar el color del ícono de "like"
-            likeIcon.style.filter = "hue-rotate(150deg)"; // Cambia el color para simular que se dio like
+            // Cambiar el ícono de "like" y actualizar el estado
+            likeIcon.src = liked ? '../assets/favorito blend.svg' : '../assets/corazon.png';
+            likeIcon.setAttribute('data-liked', liked ? 'false' : 'true');
         } catch (error) {
             console.error('Error al dar like:', error);
         }
