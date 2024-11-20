@@ -4,6 +4,7 @@ const baseurl = "http://localhost:3000";
 
 // Obtener elementos del DOM
 const crearPostForm = document.querySelector(".crear-post");
+const publicarBtn = document.getElementById("publicarBtn");
 const postListContainer = document.querySelector(".content");
 const sidebarLinks = document.querySelectorAll(".sidebarposition a");
 
@@ -32,6 +33,11 @@ const obtenerPosts = async () => {
 
 // Renderizar posts
 const renderPosts = (posts) => {
+  // Limpiar las publicaciones actuales
+  const existingPosts = document.querySelectorAll(".post");
+  existingPosts.forEach(post => post.remove());
+  
+  // Renderizar cada publicación
   posts.forEach((post) => {
     const postContainer = document.createElement("div");
     postContainer.className = "post";
@@ -79,11 +85,16 @@ const renderComments = (comments, postId) => {
 };
 
 // Evento para crear un nuevo post
-crearPostForm.addEventListener("submit", async (e) => {
+publicarBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
-  const titulo = document.querySelector(".crear-post input").value;
-  const texto = document.querySelector(".crear-post textarea").value;
+  const titulo = document.getElementById("tituloPost").value;
+  const texto = document.getElementById("contenidoPost").value;
+
+  if (!titulo || !texto) {
+    alert("Por favor, completa todos los campos antes de publicar.");
+    return;
+  }
 
   const postData = {
     titulo,
@@ -111,6 +122,10 @@ crearPostForm.addEventListener("submit", async (e) => {
   } catch (error) {
     console.error("Error creando la publicación:", error);
   }
+
+  // Limpiar los campos del formulario
+  document.getElementById("tituloPost").value = "";
+  document.getElementById("contenidoPost").value = "";
 });
 
 // Cargar las publicaciones cuando la página esté lista
