@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <h4>${post.titulo}</h4>
         <p>${post.texto}</p>
         <div class="tags">
-          ${post.tagscontent.map(tag => `<span class="tag">#${tag}</span>`).join('')}
+          ${post.tags[0].content.map(tag => `<span class="tag">#${tag}</span>`).join('')}
         </div>
         <button onclick="mostrarComentarios('${post._id}')">Comentar</button>
         <div id="comentarios-${post._id}" class="comentarios"></div>
@@ -96,7 +96,8 @@ document.addEventListener("DOMContentLoaded", function () {
     publicarBtn.addEventListener("click", async (e) => {
       e.preventDefault();
   
-      const token = localStorage.getItem("token");
+      const token = sessionStorage.getItem('authToken'); 
+      console.log(token)     
       if (!token) {
         alert("No estás autenticado. Por favor, inicia sesión.");
         return;
