@@ -9,7 +9,7 @@ const createGroupForm = document.getElementById("createGroupForm");
 const nombreGrupoInput = document.getElementById("nombreGrupo");
 const descripcionInput = document.getElementById("descripcionGrupo");
 
-let token = localStorage.getItem("token");
+let token = sessionStorage.getItem("authToken");
 if (!token) {
     alert("No estás autenticado. Por favor, inicia sesión.");
     window.location.href = "login.html";
