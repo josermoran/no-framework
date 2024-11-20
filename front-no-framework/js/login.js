@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const loginData = { identifier, password };
 
             // Realiza la petición POST al backend usando fetch
-            fetch(`${baseurl}/api/login/`, {
+            fetch('http://localhost:3000/api/login/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
