@@ -1,92 +1,132 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/group/maingroup.css">
-    <title>Página del Grupo</title>
-    <style>
-        body {
-            font-family: 'Reem Kufi Fun', sans-serif;
-            background: #F3F3F3;
-            margin: 0;
-        }
-
-        .backgroundGP {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: #f5f5f5;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .divisorlinegp, .divisorline2gp {
-            width: 80%;
-            height: 2px;
-            background: #007BFF;
-            margin: 20px 0;
-        }
-
-        .gspos {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .grupoName, .grupoDes, .publiamountTxt, .membertxt {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .publiNmembernumber {
-            color: #007BFF;
-            font-size: 16px;
-        }
-
-        .backButton {
-            padding: 10px 20px;
-            background: #007BFF;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-
-        .backButton:hover {
-            background: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/front-no-framework/css/group/group.css">
+  <title>Página del Grupo</title>
 </head>
-
 <body>
-    <div class="backgroundGP">
-        <button class="backButton" onclick="goBack()">Regresar</button>
-        <div class="gspos">
-            <div class="grupoName">Nombre del Grupo</div>
-            <div class="grupoDes">Descripción del Grupo</div>
-            <div class="publiamountpos">
-                <div class="publiamountTxt">Publicaciones</div>
-                <div class="publiNmembernumber">#0</div>
-            </div>
-            <div class="memberamntpos">
-                <div class="membertxt">Miembros</div>
-                <div class="publiNmembernumber">#0</div>
-            </div>
-        </div>
-        <div class="divisorlinegp"></div>
-        <div class="gspos">
-            <div class="grupoName">Otra Sección del Grupo</div>
-            <!-- Puedes agregar más detalles o secciones aquí -->
-        </div>
-    </div>
-    <script src="../js/group.js" defer></script>
-</body>
+  <div class="main-container">
 
+    <div class="sidebarposition">
+      <a href="feed.html">Inicio</a>
+      <a href="user.html">Perfil</a>
+      <a href="groupfeed.html">Grupos</a>
+      <a href="groupcreate.html">Crear Grupo</a>
+      <a href="register.html">Registrarse</a>
+    </div>
+
+    <div class="content-container">
+      <div class="group-header">
+        <div class="group-info">
+          <div class="grupoName" id="nombreGrupo">Nombre del Grupo</div>
+          <div class="grupoDes" id="descripcionGrupo">Descripción del Grupo</div>
+        </div>
+        <div class="group-stats">
+          <div class="publiamountpos">
+            <div class="publiamountTxt">Publicaciones</div>
+            <div class="publiNmembernumber" id="cantidadPublicaciones">#10</div>
+          </div>
+          <div class="memberamntpos">
+            <div class="membertxt">Miembros</div>
+            <div class="publiNmembernumber" id="cantidadMiembros">#25</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divisorlinegp"></div>
+
+      <div class="new-post">
+        <input type="text" id="new-post-title" placeholder="Título del post">
+        <textarea placeholder="Escribe tu publicación aquí..." id="new-post-text"></textarea>
+        <input type="text" id="tag1" placeholder="Tag 1">
+        <input type="text" id="tag2" placeholder="Tag 2">
+        <input type="text" id="tag3" placeholder="Tag 3">
+        <input type="text" id="tag4" placeholder="Tag 4">
+        <button onclick="agregarPost()">Agregar Post</button>
+      </div>
+
+      <div class="scrollboxUser">
+        <div class="faposition">
+          <h3>Título del Post 1</h3>
+          <p>Contenido del post 1...</p>
+          <div class="acciones">
+            <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon">
+            <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon">
+          </div>
+        </div>
+        <div class="faposition">
+          <h3>Título del Post 2</h3>
+          <p>Contenido del post 2...</p>
+          <div class="acciones">
+            <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon">
+            <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon">
+          </div>
+        </div>
+        <div class="faposition">
+          <h3>Título del Post 3</h3>
+          <p>Contenido del post 3...</p>
+          <div class="acciones">
+            <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon">
+            <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function agregarPost() {
+      // Obtener el título del nuevo post
+      const newPostTitle = document.getElementById('new-post-title').value;
+
+      // Obtener el texto del nuevo post
+      const newPostText = document.getElementById('new-post-text').value;
+      // Obtener los tags
+      const tag1 = document.getElementById('tag1').value;
+      const tag2 = document.getElementById('tag2').value;
+      const tag3 = document.getElementById('tag3').value;
+      const tag4 = document.getElementById('tag4').value;
+
+      // Validar que el texto no esté vacío
+      if (newPostText.trim() === '') {
+        alert('Por favor, escribe algo en tu publicación.');
+        return;
+      }
+
+      // Crear un nuevo elemento div para el post
+      const newPostDiv = document.createElement('div');
+      newPostDiv.classList.add('faposition');
+      newPostDiv.innerHTML = `
+                <h3>${newPostTitle}</h3>
+                <p>${newPostText}</p>
+                <div class="acciones">
+                    <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon">
+                    <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon">
+                </div>
+                <div class="tags">
+                    ${tag1 ? `<span class="tag">${tag1}</span>` : ''}
+                    ${tag2 ? `<span class="tag">${tag2}</span>` : ''}
+                    ${tag3 ? `<span class="tag">${tag3}</span>` : ''}
+                    ${tag4 ? `<span class="tag">${tag4}</span>` : ''}
+                </div>
+            `;
+
+      // Agregar el nuevo post al contenedor de posts
+      const scrollboxUser = document.querySelector('.scrollboxUser');
+      scrollboxUser.insertBefore(newPostDiv, scrollboxUser.firstChild);
+
+      // Limpiar el textarea, los inputs de tags y el título
+      document.getElementById('new-post-text').value = '';
+      document.getElementById('tag1').value = '';
+      document.getElementById('tag2').value = '';
+      document.getElementById('tag3').value = '';
+      document.getElementById('tag4').value = '';
+      document.getElementById('new-post-title').value = '';
+    }
+  </script>
+</body>
 </html>

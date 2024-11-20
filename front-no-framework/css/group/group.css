@@ -1,204 +1,136 @@
-/* Variables globales */
-:root {
-    --primary-color: #2196F3;
-    --primary-light: #D1F1FF;
-    --secondary-color: #585858;
-    --background-light: #F9F9F9;
-    --text-primary: #333333;
-    --text-secondary: #666666;
-    --border-radius: 20px;
-    --transition-speed: 0.3s;
-    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Estilos base */
-  .backgroundGP {
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    min-height: 100vh;
-    padding: var(--background-padding);
-    background: linear-gradient(135deg, #ffffff 0%, var(--background-light) 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-  }
-  
-  /* Líneas divisorias con efecto gradiente */
-  .divisorlinegp,
-  .divisorline2gp {
-    border-left: none;
-    width: 1px;
-    height: 83%;
-    background: linear-gradient(to bottom, transparent, var(--secondary-color), transparent);
-  }
-  
-  .divisorlinegp {
-    transform: translateX(-60px);
-  }
-  
-  .divisorline2gp {
-    transform: translateX(-35px);
-  }
-  
-  /* Feed Box mejorado */
-  .feedboxGP {
-    width: 1275px;
-    height: 85%;
-    top: 210px;
-    transform: translateX(-50px);
-    transition: all var(--transition-speed) ease;
-  }
-  
-  .GBbck,
-  .fabcksGP {
-    background: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: all var(--transition-speed) ease;
-  }
-  
-  .GBbck:hover,
-  .fabcksGP:hover {
-    background: var(--background-light);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Grupo Box mejorado */
-  .gbpos {
-    transition: transform var(--transition-speed) ease;
-  }
-  
-  .gruopIconGB {
-    overflow: hidden;
-    transition: transform 0.2s ease;
-  }
-  
-  .gruopIconGB:hover {
-    transform: scale(1.05);
-  }
-  
-  .gruopIconbckGB {
-    background: var(--primary-light);
-    transition: background-color var(--transition-speed) ease;
-  }
-  
-  /* Tipografía mejorada */
-  .groupName,
-  .empresaName {
-    color: var(--text-primary);
-    font-family: 'Reem Kufi Fun', sans-serif;
-    transition: color var(--transition-speed) ease;
-  }
-  
-  .grupoDes {
-    color: var(--text-secondary);
-    font-family: 'Roboto Flex', sans-serif;
-    line-height: 1.6;
-  }
-  
-  /* Botones mejorados */
-  .publicarposition {
-    background: var(--primary-color);
-    border-radius: var(--border-radius);
-    transition: all var(--transition-speed) ease;
-  }
-  
-  .publicarposition:hover {
-    background: var(--primary-color);
-    opacity: 0.9;
-    transform: translateY(-1px);
-  }
-  
-  .publicartxt {
-    color: white;
-    font-weight: 500;
-    transition: all var(--transition-speed) ease;
-  }
-  
-  /* Input mejorado */
-  .inputtxt {
-    font-family: 'Roboto Flex', sans-serif;
-    padding: 12px;
-    transition: all var(--transition-speed) ease;
-    border-radius: 8px;
-  }
-  
-  .inputtxt:focus {
-    background: rgba(33, 150, 243, 0.05);
-  }
-  
-  /* Tags mejorados */
-  .tag {
-    background: var(--background-light);
-    border-radius: 12px;
-    padding: 4px 12px;
-    transition: all var(--transition-speed) ease;
-  }
-  
-  .tag:hover {
-    background: var(--primary-light);
-    transform: translateY(-1px);
-  }
-  
-  /* Scrollbar personalizado */
-  .scrollboxGP,
-  .scrollboxcomments {
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-color) transparent;
-  }
-  
-  .scrollboxGP::-webkit-scrollbar,
-  .scrollboxcomments::-webkit-scrollbar {
-    width: 6px;
-  }
-  
-  .scrollboxGP::-webkit-scrollbar-thumb,
-  .scrollboxcomments::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color);
-    border-radius: 3px;
-  }
-  
-  /* Media queries mejorados */
-  @media (max-width: 810px) {
-    .feedboxGP,
-    .GBbck,
-    .fabcksGP,
-    .scrollboxGP {
-      width: 95%;
-      margin: 0 auto;
-      transform: none;
-    }
-  
-    .empresaName {
-      font-size: 16px;
-    }
-  
-    .groupName {
-      font-size: 18px;
-    }
-  
-    .joinGroupPos,
-    .likeGroupPos {
-      transform: scale(0.9);
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .backgroundGP {
-      padding: 20px 10px 40px;
-    }
-  
-    .tag {
-      margin-right: 10px;
-    }
-    
-    .publicarposition {
-      left: auto;
-      right: 20px;
-    }
-  }
+/* Estilos generales */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+}
+
+/* Contenedor principal */
+.main-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Barra lateral */
+.sidebarposition {
+  width: 250px;
+  height: 100%;
+  background: #ffffff;
+  border-right: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+.sidebarposition a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+}
+
+.sidebarposition a:hover {
+  background: #D1F1FF;
+}
+
+/* Contenedor de contenido */
+.content-container {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* Encabezado del grupo */
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.group-info {
+
+}
+
+.group-stats {
+  display: flex;
+  align-items: center;
+}
+
+.publiamountpos,
+.memberamntpos {
+  margin-left: 20px;
+}
+
+/* Línea divisora */
+.divisorlinegp {
+  height: 1px;
+  background: #eee;
+  margin: 20px 0;
+}
+
+/* Contenedor de posts */
+.scrollboxUser {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; 
+  overflow-y: auto; 
+  max-height: 300px; 
+  margin-bottom: 15px; 
+}
+
+.faposition {
+  width: 100%; 
+  padding: 30px; /* Aumenta el padding */
+  background: #fff; 
+  border-radius: 16px;
+  border: 1px solid #eee;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.faposition h3 {
+  margin-bottom: 10px;
+  font-size: 24px; /* Aumenta el tamaño de la fuente del título */
+}
+
+.postbox {
+  margin-bottom: 20px;
+}
+
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.acciones img {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* ... (resto del código CSS) ... */
+
+.new-post {
+  margin-bottom: 20px;
+}
+
+.new-post textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.new-post button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
