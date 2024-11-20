@@ -1,32 +1,61 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
     const baseurl = 'http://localhost:3000'; // Cambia esto a la URL de tu API
-    const username = new URLSearchParams(window.location.search).get('username');
+
+    // Obtener el nombre de usuario desde sessionStorage
+    const username = sessionStorage.getItem('username');
     let userId = '';
 
-    // Obtener el usuario por nombre de usuario
-    const getUser = () => {
-        axios.get(`${baseurl}/api/usuario/miusuario/${username}`)
-            .then((res) => {
-                userId = res.data.usuario[0]._id;
-            })
-            .catch((error) => {
-                console.error('Error obteniendo el usuario:', error);
-            });
-    };
+    if (!username) {
+        alert('No se pudo encontrar el usuario. Por favor, regístrate nuevamente.');
+        window.location.href = './register.html';
+        return;
+    }
 
-    getUser();
+    // Obtener el usuario por nombre de usuario
+    try {
+        const response = await fetch(`${baseurl}/api/usuario/miusuario/${username}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Error obteniendo el usuario');
+        }
+
+        const data = await response.json();
+        userId = data.usuario[0]._id;
+    } catch (error) {
+        console.error('Error obteniendo el usuario:', error);
+        alert('Error obteniendo el usuario. Por favor, inténtalo de nuevo.');
+    }
 
     // Manejar la lógica de envío del formulario
-    window.handleSubmit = (e) => {
-        e.preventDefault();
-        const code = document.getElementById('codigo').value;
-        axios.post(`${baseurl}/api/login/${userId}/verify/${code}`)
-            .then(() => {
+    const confirmForm = document.getElementById('confirmForm');
+    if (confirmForm) {
+        confirmForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const code = document.getElementById('codigo').value;
+
+            try {
+                const response = await fetch(`${baseurl}/api/login/${userId}/verify/${code}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error('Código incorrecto');
+                }
+
+                console.log('Código verificado correctamente');
                 window.location.href = '/';
-            })
-            .catch((error) => {
+            } catch (error) {
                 console.error('Error verificando el código:', error);
                 alert('Código incorrecto, por favor inténtalo nuevamente.');
-            });
-    };
+            }
+        });
+    }
 });
