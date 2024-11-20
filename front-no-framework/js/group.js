@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Función para extraer el ID del grupo desde la URL
     function getGrupoIdFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get('grupo');
+        return urlParams.get('groupId');
     }
 
     // Llamar a las funciones para obtener los datos
