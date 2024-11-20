@@ -53,7 +53,6 @@ async function guardarPost(postId) {
 
     try {
         // Solicitud POST para guardar los cambios del post
-        console.log(headers)
         const response = await fetch(`${baseurl}/api/post/${postId}`, {
             method: 'POST',
             headers,
@@ -70,10 +69,10 @@ async function guardarPost(postId) {
             <h3>${editedTitle}</h3>
             <p>${editedText}</p>
             <div class="acciones">
-                <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${postId}">
-                <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="toggleComments('${postId}')">
-                <img src="/front-no-framework/assets/trash.svg" alt="Eliminar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="eliminarPost('${postId}')">
-                <img src="/front-no-framework/assets/edit.svg" alt="Editar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="editarPost('${postId}')">
+                <img src="../assets/favorito blend.svg" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${postId}">
+                <img src="../assets/comment_duotone_line.svg" alt="Comment Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="toggleComments('${postId}')">
+                <img src="../assets/trash.svg" alt="Eliminar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="eliminarPost('${postId}')">
+                <img src="../assets/edit.svg" alt="Editar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="editarPost('${postId}')">
             </div>
             <div id="comments-${postId}" style="display: none;">
             </div>
