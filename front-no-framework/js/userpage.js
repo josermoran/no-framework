@@ -53,9 +53,10 @@ async function guardarPost(postId) {
 
     try {
         // Solicitud POST para guardar los cambios del post
+        console.log(headers)
         const response = await fetch(`${baseurl}/api/post/${postId}`, {
             method: 'POST',
-            headers: headers,
+            headers,
             body: JSON.stringify({ titulo: editedTitle, texto: editedText })
         });
 
@@ -131,8 +132,9 @@ const cargarUsuario = async () => {
             throw new Error('Error obteniendo los datos del usuario');
         }
         const data = await response.json();
+        const message = data?.usuario?.empresa?.Nombre ? `Trabaja en ${data.usuario.empresa.Nombre}` : "";
         document.getElementById('username').textContent = data.usuario.username;
-        document.getElementById('userCompany').textContent = `Trabaja en ${data.usuario.empresa.Nombre}`;
+        document.getElementById('userCompany').textContent = message;
     } catch (error) {
         console.error('Error cargando los datos del usuario:', error);
     }
@@ -141,7 +143,7 @@ const cargarUsuario = async () => {
 // Cargar publicaciones del usuario
 const cargarPublicaciones = async () => {
     try {
-        const response = await fetch(`${baseurl}/api/post/findbyuser`, { headers });
+        const response = await fetch(`${baseurl}/api/post/findbyuser/`, { method: 'PATCH', headers });
         if (!response.ok) {
             throw new Error('Error obteniendo publicaciones del usuario');
         }
@@ -164,10 +166,10 @@ const renderizarPublicaciones = (posts) => {
             <h3>${post.titulo}</h3>
             <p>${post.texto}</p>
             <div class="acciones">
-                <img src="/front-no-framework/assets/favorito blend.svg" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${post._id}">
-                <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="toggleComments('${post._id}')">
-                <img src="/front-no-framework/assets/trash.svg" alt="Eliminar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="eliminarPost('${post._id}')">
-                <img src="/front-no-framework/assets/edit.svg" alt="Editar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="editarPost('${post._id}')">
+                <img src="../assets/favorito blend.svg" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${post._id}">
+                <img src="../assets/comment_duotone_line.svg" alt="Comment Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="toggleComments('${post._id}')">
+                <img src="../assets/trash.svg" alt="Eliminar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="eliminarPost('${post._id}')">
+                <img src="../assets/edit.svg" alt="Editar Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="editarPost('${post._id}')">
             </div>
             <div id="comments-${post._id}" style="display: none;">
                 ${post.comments.map(comment => `<p>${comment.user.username}: ${comment.content}</p>`).join('')}
