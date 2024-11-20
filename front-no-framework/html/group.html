@@ -47,7 +47,7 @@
         <button onclick="agregarPost()">Agregar Post</button>
       </div>
 
-      <div class="scrollboxUser">
+      <div class="post-container"> <div> 
         <div class="faposition">
           <h3>Título del Post 1</h3>
           <p>Contenido del post 1...</p>
@@ -72,7 +72,7 @@
             <img src="/front-no-framework/assets/comment_duotone_line.svg" alt="Comment Icon">
           </div>
         </div>
-      </div>
+      </div> <div> 
     </div>
 
   </div>
@@ -116,8 +116,8 @@
             `;
 
       // Agregar el nuevo post al contenedor de posts
-      const scrollboxUser = document.querySelector('.scrollboxUser');
-      scrollboxUser.insertBefore(newPostDiv, scrollboxUser.firstChild);
+      const postContainer = document.querySelector('.post-container'); // Seleccionar el contenedor de posts
+      postContainer.appendChild(newPostDiv); // Agregar el nuevo post al contenedor
 
       // Limpiar el textarea, los inputs de tags y el título
       document.getElementById('new-post-text').value = '';

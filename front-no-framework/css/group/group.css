@@ -1,23 +1,21 @@
 /* Estilos generales */
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f5f5f5;
+html, body {
+  height: 100%; 
   margin: 0;
-}
-
-/* Contenedor principal */
-.main-container {
-  display: flex;
-  min-height: 100vh;
 }
 
 /* Barra lateral */
 .sidebarposition {
   width: 250px;
-  height: 100%;
+  height: 100vh; /* Ajusta la altura de la barra lateral */
   background: #ffffff;
   border-right: 1px solid #ccc;
   padding-top: 20px;
+  position: fixed; /* Fija la posición de la barra lateral */
+  left: 0;
+  top: 0;
+  /* Elimina el scroll vertical de la barra lateral */
+  /* overflow-y: auto; */ 
 }
 
 .sidebarposition a {
@@ -36,10 +34,18 @@ body {
 .content-container {
   flex-grow: 1;
   padding: 20px;
+  margin-left: 270px; /* Ajusta el margen izquierdo */
+  margin-top: 20px; /* Ajusta el margen superior */
 }
 
 /* Encabezado del grupo */
 .group-header {
+  background-color: #e0f7fa; /* Color de fondo azul claro */  
+  color: #212121; /* Color de texto gris oscuro */  
+  padding: 15px;  
+  text-align: left;  
+  font-size: 20px; /* Tamaño de fuente más grande para el título */  
+  font-weight: bold;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,25 +68,26 @@ body {
 
 /* Línea divisora */
 .divisorlinegp {
-  height: 1px;
-  background: #eee;
-  margin: 20px 0;
+  border-left: 1px solid #bdbdbd; /* Borde gris claro */  
+  height: 100%; /* Altura completa */  
+  margin: 20px 0; /* Margen superior e inferior */  
 }
 
 /* Contenedor de posts */
-.scrollboxUser {
+.post-container { /* Estilos para el contenedor de posts */
   background: #ffffff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   margin-top: 20px; 
-  overflow-y: auto; 
-  max-height: 300px; 
+  /* Elimina el scroll vertical del contenedor de posts */
+  /* overflow-y: auto; */ 
+  max-height: 500px; /* Ajusta la altura máxima del contenedor de posts */
   margin-bottom: 15px; 
 }
 
 .faposition {
-  width: 100%; 
+  width: 100%; /* Ajusta el ancho a 100% */
   padding: 30px; /* Aumenta el padding */
   background: #fff; 
   border-radius: 16px;
@@ -110,36 +117,35 @@ body {
   cursor: pointer;
 }
 
-/* ... (resto del código CSS) ... */
-
 .new-post {
+  background: #ffffff;
+  padding: 20px;
   margin-bottom: 20px;
+  border-radius: 5px;
 }
 
+.new-post input,
 .new-post textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  margin: 5px 0;
   border-radius: 5px;
-  resize: vertical;
-  min-height: 100px;
+  border: 1px solid #ccc;
+}
+
+.new-post input {
+  display: block; /* Fuerza a que los inputs ocupen todo el ancho y se apilen */
 }
 
 .new-post button {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  background: #007BFF;
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
 }
 
-.new-post input {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0; /* Ajusta el margen para separar los inputs */
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  display: block; /* Fuerza a que los inputs ocupen todo el ancho y se apilen */
+.new-post button:hover {
+  background: #0056b3;
 }
