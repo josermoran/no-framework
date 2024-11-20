@@ -6,6 +6,10 @@
 @import "continuar_components.css";
 @import "register_components.css";
 
+body { /* Nueva regla para el body */
+    font-family: 'Poppins', sans-serif;
+}
+
 .backgroundmain {
     top: 0;
     left: 0;
@@ -67,7 +71,7 @@
     width: 100%;
     max-width: 169px;
     font-size: 13px;
-    font-family: 'Reem Kufi Fun';
+    font-family: 'Poppins', sans-serif; /* Cambio de fuente */
     font-weight: 400;
     color: black;
     word-wrap: break-word;

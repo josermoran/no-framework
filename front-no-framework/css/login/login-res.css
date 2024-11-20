@@ -22,7 +22,7 @@
     position: absolute;
     color: black;
     font-size: 20px;
-    font-family: 'Reem Kufi Fun';
+    font-family: 'Poppins', sans-serif; /* Cambio de fuente */
     font-weight: 400;
     word-wrap: break-word;
 }
@@ -52,7 +52,7 @@
     position: absolute;
     color: black;
     font-size: 20px;
-    font-family: 'Reem Kufi Fun';
+    font-family: 'Poppins', sans-serif; /* Cambio de fuente */
     font-weight: 400;
     word-wrap: break-word;
     background: none;
@@ -85,7 +85,7 @@
     position: absolute;
     color: black;
     font-size: 20px;
-    font-family: 'Reem Kufi Fun';
+    font-family: 'Poppins', sans-serif; /* Cambio de fuente */
     font-weight: 400;
     word-wrap: break-word;
     background: none;
@@ -133,7 +133,7 @@
     position: relative;
     color: black;
     font-size: 20px;
-    font-family: 'Reem Kufi Fun';
+    font-family: 'Poppins', sans-serif; /* Cambio de fuente */
     font-weight: 400;
     word-wrap: break-word;
     background: none;
@@ -183,7 +183,7 @@
     position: absolute;
     color: black;
     font-size: 20px;
-    font-family: 'Reem Kufi Fun';
+    font-family: 'Poppins', sans-serif; /* Cambio de fuente */
     font-weight: 400;
     word-wrap: break-word;
     background: none;
