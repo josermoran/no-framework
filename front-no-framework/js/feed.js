@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   // Obtener elementos del DOM
+  const token = sessionStorage.getItem('authToken'); 
   const publicarBtn = document.getElementById("publicarBtn");
-  const postListContainer = document.querySelector(".content");
+  const postListContainer = document.querySelector(".sidebarposition");
+  const ifadmin = document.querySelector(".content");
   const sidebarLinks = document.querySelectorAll(".sidebarposition a");
 
   // Evento para manejar la navegación
@@ -13,7 +15,25 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = href;
     });
   });
-
+  const headers = {
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json'
+};
+  const verificar = async () => {
+    if (token) {
+        const response = await fetch('/api/usuario/findbytoken/', {headers});
+        if (!response.ok) {
+            throw new Error('Error obteniendo los datos del administrador');
+        }
+        const data = await response.json();
+        const role = data.usuario.role
+        if(role.includes("sysadmin")){
+          addadminToDOM()
+        }
+        
+    }
+    
+}
   // Función para obtener los posts desde el backend
   const obtenerPosts = async () => {
     try {
@@ -55,44 +75,19 @@ document.addEventListener("DOMContentLoaded", function () {
     postListContainer.appendChild(postContainer);
   };
 
-  // Mostrar comentarios
-  const mostrarComentarios = async (postId) => {
-    try {
-      const response = await fetch(`/api/post/${postId}/comments`);
-      if (!response.ok) {
-        throw new Error("Error obteniendo comentarios");
-      }
-      const data = await response.json();
-      renderComments(data.comments, postId);
-    } catch (error) {
-      console.error("Error obteniendo los comentarios:", error);
-    }
-  };
-
-  // Renderizar comentarios
-  const renderComments = (comments, postId) => {
-    const comentariosContainer = document.getElementById(`comentarios-${postId}`);
-    comentariosContainer.innerHTML = "";
-    comments.forEach((comment) => {
-      const commentDiv = document.createElement("div");
-      commentDiv.className = "commentpos";
-      commentDiv.innerHTML = `
-        <div class="commentbck"></div>
-        <div class="useIconPoscomment">
-          <img class="usericoncomment" src="../assets/User_duotone_line-1.svg" />
-        </div>
-        <div class="usernamecomment">${comment.user.username}</div>
-        <div class="usercomment">${comment.content}</div>
-      `;
-      comentariosContainer.appendChild(commentDiv);
-    });
+  const addadminToDOM = (post) => {
+    const postContainer = document.createElement("div");
+    postContainer.className = "post";
+    postContainer.innerHTML = `
+      <a href="/html/admin.html">Admin<a>
+    `;
+    postListContainer.appendChild(postContainer);
   };
 
   // Evento para crear un nuevo post
   publicarBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    const token = sessionStorage.getItem('authToken'); 
     if (!token) {
       alert("No estás autenticado. Por favor, inicia sesión.");
       return;
@@ -154,4 +149,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Cargar las publicaciones cuando la página esté lista
   obtenerPosts();
+  verificar();
 });
