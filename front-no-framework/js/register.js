@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const registerData = { email, username, password };
 
                 try {
-                    const response = await fetch('http://localhost:3000/api/usuario/', {
+                    const response = await fetch('/api/usuario/', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
