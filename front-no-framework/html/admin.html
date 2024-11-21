@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/admin/admin.css">
+  <title>Panel de Administrador</title>
+</head>
+<body>
+  <div class="backgroundUserPage">
+    <div class="sidebarposition">
+      <a href="feed.html">Inicio</a>
+      <a href="user.html">Perfil</a>
+      <a href="groupfeed.html">Grupos</a>
+      <a href="groupcreate.html">Crear Grupo</a>
+      <a href="register.html">Registrarse</a>
+    </div>
+
+    <div class="content-container"> 
+      <div class="userbox">
+        <img src="../assets/User_duotone_line-1.svg" alt="User Icon">
+        <h2 id="username">Administrador</h2> 
+        <p id="userEmail">Correo: admin@example.com</p> 
+      </div>
+
+      <div class="user-list-container" id="userListContainer">
+        <!-- Aquí se llenarán los usuarios mediante JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/admin.js"></script>
+</body>
+</html>

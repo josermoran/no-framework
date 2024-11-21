@@ -1,0 +1,97 @@
+/* Estilos generales */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+}
+
+.backgroundUserPage {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+}
+
+.sidebarposition {
+    width: 250px;
+    height: 100vh; /* La barra lateral ocupa toda la altura de la pantalla */
+    background: #ffffff;
+    border-right: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.sidebarposition a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+}
+
+.sidebarposition a:hover {
+    background: #D1F1FF;
+}
+
+.content-container { /* Estilos para el contenedor de contenido */
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 20px; /* Ajusta el margen izquierdo */
+}
+
+.userbox {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Ajusta el ancho al 100% */
+    text-align: center;
+}
+
+.userbox img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.userbox h2 {
+    margin-bottom: 5px;
+}
+
+.user-list-container { /* Estilos para el contenedor de la lista de usuarios */
+    width: 80%;
+    margin-top: 20px;
+}
+
+.user-item { /* Estilos para cada item de la lista de usuarios */
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.user-item h3 {
+    margin-bottom: 5px;
+}
+
+.user-item p {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.user-item button { /* Estilos para el botón de eliminar usuario */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #dc3545; /* Color rojo para el botón */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
