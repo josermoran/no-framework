@@ -1,4 +1,3 @@
-const baseurl = "http://localhost:3000";
 
 // Obtener el token del almacenamiento local
 const token = sessionStorage.getItem('authToken');
@@ -7,16 +6,33 @@ if (!token) {
     window.location.href = 'login.html';
 }
 
-// Definir headers con el token
 const headers = {
     'Authorization': `Bearer ${token}`,
     'Content-Type': 'application/json'
 };
 
+const verificar = async () => {
+    if (token) {
+        const response = await fetch('/api/usuario/findbytoken/', {headers});
+        if (!response.ok) {
+            throw new Error('Error obteniendo los datos del administrador');
+        }
+        const data = await response.json();
+        const role = data.usuario.role
+        if(!role.includes("sysadmin")){
+            alert('No estás autenticado. Por favor, inicia sesión.');
+            window.location.href = 'login.html';
+        }
+    }
+    
+}
+// Definir headers con el token
+
 // Cargar datos del administrador
 const cargarAdministrador = async () => {
     try {
-        const response = await fetch(`${baseurl}/api/usuario/findbyid`, { headers });
+        await verificar()
+        const response = await fetch(`/api/usuario/findbyid`, { headers });
         if (!response.ok) {
             throw new Error('Error obteniendo los datos del administrador');
         }
