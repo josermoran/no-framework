@@ -3,8 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Obtener elementos del DOM
   const token = sessionStorage.getItem('authToken'); 
   const publicarBtn = document.getElementById("publicarBtn");
-  const postListContainer = document.querySelector(".sidebarposition");
-  const ifadmin = document.querySelector(".content");
+  const postListContainer = document.querySelector(".content");
   const sidebarLinks = document.querySelectorAll(".sidebarposition a");
 
   // Evento para manejar la navegación
