@@ -23,6 +23,8 @@ const verificar = async () => {
             alert('No estás autenticado. Por favor, inicia sesión.');
             window.location.href = '/html/index.html';
         }
+        document.getElementById('username').textContent = data.usuario.username;
+        document.getElementById('userEmail').textContent = `Correo: ${data.usuario.email}`;
     }
     
 }
@@ -32,13 +34,6 @@ const verificar = async () => {
 const cargarAdministrador = async () => {
     try {
         await verificar()
-        const response = await fetch(`/api/usuario/findbyid`, { headers });
-        if (!response.ok) {
-            throw new Error('Error obteniendo los datos del administrador');
-        }
-        const data = await response.json();
-        document.getElementById('username').textContent = data.usuario.username;
-        document.getElementById('userEmail').textContent = `Correo: ${data.usuario.email}`;
         cargarUsuarios()
     } catch (error) {
         console.error('Error cargando los datos del administrador:', error);
