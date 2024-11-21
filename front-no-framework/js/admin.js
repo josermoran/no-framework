@@ -39,6 +39,7 @@ const cargarAdministrador = async () => {
         const data = await response.json();
         document.getElementById('username').textContent = data.usuario.username;
         document.getElementById('userEmail').textContent = `Correo: ${data.usuario.email}`;
+        cargarUsuarios()
     } catch (error) {
         console.error('Error cargando los datos del administrador:', error);
     }
@@ -76,5 +77,4 @@ const renderizarUsuarios = (usuarios) => {
 // Inicializar la página cargando los datos
 window.addEventListener('DOMContentLoaded', () => {
     cargarAdministrador();
-    cargarUsuarios();
 });
