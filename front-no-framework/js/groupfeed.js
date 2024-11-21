@@ -1,5 +1,5 @@
 // groupfeed.js
-const baseurl = "http://localhost:3000";
+const baseurl = "http://192.168.1.210:3000";
 
 // Obtener elementos del DOM
 const groupListContainer = document.getElementById("groupList");

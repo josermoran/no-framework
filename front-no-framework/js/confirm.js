@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async function () {
-    const baseurl = 'http://localhost:3000'; // Cambia esto a la URL de tu API
+    const baseurl = 'http://192.168.1.210:3000'; // Cambia esto a la URL de tu API
 
     // Obtener el nombre de usuario desde sessionStorage
     const username = sessionStorage.getItem('username');

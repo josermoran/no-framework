@@ -1,4 +1,4 @@
-const baseurl = "http://localhost:3000";
+const baseurl = "http://192.168.1.210:3000";
 
 // Obtener el token del almacenamiento local
 const token = sessionStorage.getItem('authToken');

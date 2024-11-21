@@ -1,6 +1,6 @@
 // creategroup.js
 
-const baseurl = "http://localhost:3000";
+const baseurl = "http://192.168.1.210:3000";
 const empresaSelector = document.getElementById("empresaSelector");
 const empresarialCheckbox = document.getElementById("empresarialCheckbox");
 const generalCheckbox = document.getElementById("generalCheckbox");
