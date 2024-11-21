@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log('Usuario creado exitosamente');
                     // Guardar el nombre de usuario en sessionStorage para usarlo luego en confirm.html
                     sessionStorage.setItem('username', username);
-                    window.location.href = './confirm.html';
+                    window.location.href = '/html/feed.html';
                 } catch (error) {
                     console.error('Error creando el usuario:', error);
                     alert('Error al crear el usuario. Por favor, inténtelo de nuevo.');
