@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     localStorage.setItem('token', token);
                     sessionStorage.setItem('authToken', token);
                     // Redirige al usuario al feed principal
-                    window.location.href = 'html/feed.html';
+                    window.location.href = '/html/feed.html';
                 } else {
                     throw new Error('Token no encontrado en la respuesta del servidor');
                 }
