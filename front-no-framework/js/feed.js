@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const data = await response.json();
         const role = data.usuario.role
         if(role.includes("sysadmin")){
-          addadminToDOM()
+          addSidebarLink('Admin', '/html/admin.html');
         }
         
     }
@@ -75,14 +75,18 @@ document.addEventListener("DOMContentLoaded", function () {
     postListContainer.appendChild(postContainer);
   };
 
-  const addadminToDOM = (post) => {
-    const postContainer = document.createElement("div");
-    postContainer.className = "post";
-    postContainer.innerHTML = `
-      <a href="/html/admin.html">Admin<a>
-    `;
-    postListContainer.appendChild(postContainer);
-  };
+  function addSidebarLink(text, href) {
+    // Get the sidebar div
+    const sidebar = document.querySelector('.sidebarposition');
+
+    // Create a new <a> element
+    const newLink = document.createElement('a');
+    newLink.href = href; // Set the href attribute
+    newLink.textContent = text; // Set the text of the link
+
+    // Append the new link to the sidebar
+    sidebar.appendChild(newLink);
+}
 
   // Evento para crear un nuevo post
   publicarBtn.addEventListener("click", async (e) => {
