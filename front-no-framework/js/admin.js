@@ -3,7 +3,7 @@
 const token = sessionStorage.getItem('authToken');
 if (!token) {
     alert('No estás autenticado. Por favor, inicia sesión.');
-    window.location.href = 'login.html';
+    window.location.href = '/html/index.html';
 }
 
 const headers = {
@@ -21,7 +21,7 @@ const verificar = async () => {
         const role = data.usuario.role
         if(!role.includes("sysadmin")){
             alert('No estás autenticado. Por favor, inicia sesión.');
-            window.location.href = 'login.html';
+            window.location.href = '/html/index.html';
         }
     }
     
