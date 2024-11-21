@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const baseurl = "http://192.168.1.210:3000";
 
   // Obtener elementos del DOM
   const publicarBtn = document.getElementById("publicarBtn");
@@ -18,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Función para obtener los posts desde el backend
   const obtenerPosts = async () => {
     try {
-      const response = await fetch(`${baseurl}/api/feed/`);
+      const response = await fetch(`/api/feed/`);
       if (!response.ok) {
         throw new Error("Error obteniendo publicaciones");
       }
@@ -59,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Mostrar comentarios
   const mostrarComentarios = async (postId) => {
     try {
-      const response = await fetch(`${baseurl}/api/post/${postId}/comments`);
+      const response = await fetch(`/api/post/${postId}/comments`);
       if (!response.ok) {
         throw new Error("Error obteniendo comentarios");
       }
@@ -121,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     try {
-      const response = await fetch(`${baseurl}/api/post/`, {
+      const response = await fetch(`/api/post/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

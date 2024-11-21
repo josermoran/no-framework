@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const loginData = { identifier, password };
 
             // Realiza la petición POST al backend usando fetch
-            fetch('http://192.168.1.210:3000/api/login/', {
+            fetch('/api/login/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

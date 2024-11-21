@@ -1,4 +1,3 @@
-const baseurl = "http://192.168.1.210:3000";
 
 // Obtener el token del almacenamiento local
 const token = sessionStorage.getItem('authToken');
@@ -53,7 +52,7 @@ async function guardarPost(postId) {
 
     try {
         // Solicitud POST para guardar los cambios del post
-        const response = await fetch(`${baseurl}/api/post/${postId}`, {
+        const response = await fetch(`/api/post/${postId}`, {
             method: 'POST',
             headers,
             body: JSON.stringify({ titulo: editedTitle, texto: editedText })
@@ -84,7 +83,7 @@ async function guardarPost(postId) {
 
 async function eliminarPost(postId) {
     try {
-        const response = await fetch(`${baseurl}/api/post/${postId}`, {
+        const response = await fetch(`/api/post/${postId}`, {
             method: 'DELETE',
             headers: headers
         });
@@ -107,7 +106,7 @@ async function likePost(likeIcon) {
 
     try {
         // Solicitud POST para dar "like" al post
-        const response = await fetch(`${baseurl}/api/feed/${postId}`, {
+        const response = await fetch(`/api/feed/${postId}`, {
             method: 'PATCH',
             headers: headers,
             body: JSON.stringify({ action: liked ? 'unlike' : 'like' })
@@ -128,7 +127,7 @@ async function likePost(likeIcon) {
 // Cargar datos del usuario
 const cargarUsuario = async () => {
     try {
-        const response = await fetch(`${baseurl}/api/usuario/findbyid`, { headers });
+        const response = await fetch(`/api/usuario/findbyid`, { headers });
         if (!response.ok) {
             throw new Error('Error obteniendo los datos del usuario');
         }
@@ -144,7 +143,7 @@ const cargarUsuario = async () => {
 // Cargar publicaciones del usuario
 const cargarPublicaciones = async () => {
     try {
-        const response = await fetch(`${baseurl}/api/post/findbyuser/`, { method: 'PATCH', headers });
+        const response = await fetch(`/api/post/findbyuser/`, { method: 'PATCH', headers });
         if (!response.ok) {
             throw new Error('Error obteniendo publicaciones del usuario');
         }

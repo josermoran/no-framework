@@ -1,6 +1,5 @@
 // creategroup.js
 
-const baseurl = "http://192.168.1.210:3000";
 const empresaSelector = document.getElementById("empresaSelector");
 const empresarialCheckbox = document.getElementById("empresarialCheckbox");
 const generalCheckbox = document.getElementById("generalCheckbox");
@@ -23,7 +22,7 @@ const headers = {
 // Obtener las empresas disponibles
 const GetGroup = async () => {
     try {
-        const response = await fetch(`${baseurl}/api/empresa/`, { headers });
+        const response = await fetch(`/api/empresa/`, { headers });
         if (!response.ok) {
             throw new Error("Error obteniendo las empresas");
         }
@@ -80,7 +79,7 @@ createGroupForm.addEventListener("submit", async (e) => {
     };
 
     try {
-        const response = await fetch(`${baseurl}/api/grupo/save`, {
+        const response = await fetch(`/api/grupo/save`, {
             method: "POST",
             headers: headers,
             body: JSON.stringify(GroupData)

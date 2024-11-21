@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const baseurl = "http://192.168.1.210:3000";
 
     // Obtener elementos del DOM
     const grupoNameElement = document.querySelector(".grupoName");
@@ -12,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Función para obtener los detalles del grupo desde el backend
     const getGroupDetails = async () => {
         try {
-            const response = await fetch(`${baseurl}/api/grupo/${grupoId}`);
+            const response = await fetch(`/api/grupo/${grupoId}`);
             if (!response.ok) {
                 throw new Error("Error obteniendo los detalles del grupo");
             }
@@ -26,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Función para obtener las publicaciones del grupo desde el backend
     const getGroupPosts = async () => {
         try {
-            const response = await fetch(`${baseurl}/api/post/grupo/${grupoId}`, { method: 'GET' });
+            const response = await fetch(`/api/post/grupo/${grupoId}`, { method: 'GET' });
             if (!response.ok) {
                 throw new Error("Error obteniendo las publicaciones del grupo");
             }
@@ -81,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
             // Solicitud POST para dar "like" o "unlike" al post
-            const response = await fetch(`${baseurl}/api/feed/${postId}`, {
+            const response = await fetch(`/api/feed/${postId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

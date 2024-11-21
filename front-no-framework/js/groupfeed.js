@@ -1,5 +1,4 @@
 // groupfeed.js
-const baseurl = "http://192.168.1.210:3000";
 
 // Obtener elementos del DOM
 const groupListContainer = document.getElementById("groupList");
@@ -7,7 +6,7 @@ const groupListContainer = document.getElementById("groupList");
 // Función para obtener los grupos desde el backend
 const obtenerGrupos = async () => {
   try {
-    const response = await fetch(`${baseurl}/api/grupo/`);
+    const response = await fetch(`/api/grupo/`);
     if (!response.ok) {
       throw new Error("Error obteniendo grupos");
     }

@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     // Obtener el usuario por nombre de usuario
     try {
-        const response = await fetch(`${baseurl}/api/usuario/miusuario/${username}`, {
+        const response = await fetch(`/api/usuario/miusuario/${username}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             const code = document.getElementById('codigo').value;
 
             try {
-                const response = await fetch(`${baseurl}/api/login/${userId}/verify/${code}`, {
+                const response = await fetch(`/api/login/${userId}/verify/${code}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
