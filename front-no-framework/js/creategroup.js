@@ -61,9 +61,7 @@ createGroupForm.addEventListener("submit", async (e) => {
 
     const nombre = nombreGrupoInput.value;
     const descripcion = descripcionInput.value;
-    const empresarial = empresarialCheckbox.checked;
     const priv = privCheckbox.checked;
-    const empresa = empresarial ? empresaSelector.value : null;
 
     if (!nombre || !descripcion) {
         alert("Por favor, completa todos los campos.");
