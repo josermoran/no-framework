@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h3>${post.titulo}</h3>
                 <p>${post.texto}</p>
                 <div class="tags">
-                    ${post.tags[0]?.content?.map(tag => `<span class="tag">#${tag}</span>`).join('') || ''}
+                    ${post.tags.content?.map(tag => `<span class="tag">#${tag}</span>`).join('') || ''}
                 </div>
                 <div class="acciones">
                     <img src="${post.likes.includes(sessionStorage.getItem('authToken')) ? '../assets/corazon.png' : '../assets/favorito blend.svg'}" alt="Like Icon" style="width: 20px; height: 20px; cursor: pointer;" onclick="likePost(this)" data-post-id="${post._id}" data-liked="${post.likes.includes(sessionStorage.getItem('authToken'))}">
