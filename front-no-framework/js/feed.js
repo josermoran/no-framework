@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     'Authorization': `Bearer ${token}`,
     'Content-Type': 'application/json'
 };
-  const verificar = async () => {
+const verificar = async () => {
     if (token) {
         const response = await fetch('/api/usuario/findbytoken/', {headers});
         if (!response.ok) {
@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
         throw new Error("Error obteniendo publicaciones");
       }
       const data = await response.json();
-      console.log(data.posts)
       renderPosts(data.posts);
     } catch (error) {
       console.error("Error obteniendo las publicaciones:", error);
@@ -50,8 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Renderizar posts
   const renderPosts = (posts) => {
+    console.log(posts)
     // Limpiar las publicaciones actuales
     const existingPosts = document.querySelectorAll(".post");
+    console.log(existingPosts)
     existingPosts.forEach((post) => post.remove());
 
     // Renderizar cada publicación
