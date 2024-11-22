@@ -51,7 +51,6 @@ const verificar = async () => {
   const renderPosts = (posts) => {
     // Limpiar las publicaciones actuales
     const existingPosts = document.querySelectorAll(".post");
-    console.log(existingPosts)
     existingPosts.forEach((post) => post.remove());
     // Renderizar cada publicación
     posts.forEach((post) => {
@@ -72,7 +71,6 @@ const verificar = async () => {
       <div id="comentarios-${post._id}" class="comentarios"></div>
     `;
     postListContainer.appendChild(postContainer);
-    console.log("aqui5")
   };
 
   function addSidebarLink(text, href) {
