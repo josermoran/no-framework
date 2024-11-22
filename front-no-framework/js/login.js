@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.getElementById('loginForm');
-
+    sessionStorage.clear();
+    localStorage.clear()
     if (loginForm) {
         loginForm.addEventListener('submit', function (event) {
             event.preventDefault(); 
