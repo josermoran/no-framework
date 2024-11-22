@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const newPost = await response.json();
     
           // Añadir la nueva publicación directamente al DOM
-          addPostToDOM(newPost);
+          renderPosts(newPost);
     
           // Alternativamente, puedes volver a obtener todas las publicaciones:
           // obtenerPosts();
