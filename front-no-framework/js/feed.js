@@ -62,14 +62,14 @@ const verificar = async () => {
   // Añadir un post al DOM
   const addPostToDOM = (post) => {
     console.log(post)
-    console.log(post.tags[0])
+    console.log(post.tags)
     const postContainer = document.createElement("div");
     postContainer.className = "post";
     postContainer.innerHTML = `
       <h4>${post.titulo}</h4>
       <p>${post.texto}</p>
       <div class="tags">
-        ${post.tags[0].content.map(tag => `<span class="tag">#${tag}</span>`).join('')}
+        ${post.tags.content.map(tag => `<span class="tag">#${tag}</span>`).join('')}
       </div>
       <div id="comentarios-${post._id}" class="comentarios"></div>
     `;
