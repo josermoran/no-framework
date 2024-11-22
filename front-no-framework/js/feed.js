@@ -66,6 +66,7 @@ const verificar = async () => {
   // Añadir un post al DOM
   const addPostToDOM = (post) => {
     console.log("aqui4")
+    console.log(post.tags[0].content)
     const postContainer = document.createElement("div");
     postContainer.className = "post";
     postContainer.innerHTML = `
