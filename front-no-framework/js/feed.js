@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       const data = await response.json();
       renderPosts(data.posts);
+      console.log(data.posts)
     } catch (error) {
       console.error("Error obteniendo las publicaciones:", error);
     }
