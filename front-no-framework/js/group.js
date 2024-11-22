@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const grupoDescElement = document.querySelector(".grupoDes");
     const publiAmountElement = document.querySelector(".publiNmembernumber");
     const memberAmountElement = document.querySelectorAll(".publiNmembernumber")[1];
+    const publicarBtn = document.getElementById("publicarBtn");
 
     const grupoId = getGrupoIdFromURL();
 
@@ -71,6 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
             postContainer.appendChild(postBox);
         });
     };
+
+    
     
 
     // Función para dar like a una publicación
@@ -106,6 +109,68 @@ document.addEventListener("DOMContentLoaded", function () {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get('groupId');
     }
+
+    publicarBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+    
+        if (!token) {
+          alert("No estás autenticado. Por favor, inicia sesión.");
+          return;
+        }
+    
+        const titulo = document.getElementById("new-post-title").value;
+        const texto = document.getElementById("new-post-text").value;
+        const tag1 = document.getElementById("tag 1").value;
+        const tag2 = document.getElementById("tag 2").value;
+        const tag3 = document.getElementById("tag 3").value;
+        const tag4 = document.getElementById("tag 4").value;
+        console.log(grupoId)
+        const tagscontent = [tag1, tag2, tag3, tag4].filter(tag => tag.trim() !== "");
+    
+        if (!titulo || !texto) {
+          alert("Por favor, completa todos los campos antes de publicar.");
+          return;
+        }
+    
+        const postData = {
+          titulo,
+          texto,
+          grupo: null,
+          tagscontent: tagscontent
+        };
+    
+        try {
+          const response = await fetch(`/api/post/`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+            },
+            body: JSON.stringify(postData),
+          });
+    
+          if (!response.ok) {
+            throw new Error("Error creando la publicación");
+          }
+    
+          const newPost = await response.json();
+    
+          // Añadir la nueva publicación directamente al DOM
+          addPostToDOM(newPost);
+    
+          // Alternativamente, puedes volver a obtener todas las publicaciones:
+          // obtenerPosts();
+        } catch (error) {
+          console.error("Error creando la publicación:", error);
+        }
+    
+        // Limpiar los campos del formulario
+        document.getElementById("tituloPost").value = "";
+        document.getElementById("contenidoPost").value = "";
+        document.getElementById("tag1").value = "";
+        document.getElementById("tag2").value = "";
+        document.getElementById("tag3").value = "";
+      });
 
     // Llamar a las funciones para obtener los datos
     getGroupDetails();
