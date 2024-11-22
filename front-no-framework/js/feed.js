@@ -49,24 +49,20 @@ const verificar = async () => {
 
   // Renderizar posts
   const renderPosts = (posts) => {
-    console.log(posts)
     // Limpiar las publicaciones actuales
     const existingPosts = document.querySelectorAll(".post");
     console.log(existingPosts)
     existingPosts.forEach((post) => post.remove());
-    console.log("aqui")
     // Renderizar cada publicación
     posts.forEach((post) => {
-      console.log("aqui2")
       addPostToDOM(post);
     });
-    console.log("aqui3")
   };
 
   // Añadir un post al DOM
   const addPostToDOM = (post) => {
-    console.log("aqui4")
-    console.log(post.tags[0].content)
+    console.log(post)
+    console.log(post.tags[0])
     const postContainer = document.createElement("div");
     postContainer.className = "post";
     postContainer.innerHTML = `
