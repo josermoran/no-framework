@@ -72,9 +72,9 @@ createGroupForm.addEventListener("submit", async (e) => {
 
     const GroupData = {
         NombreGrupo: nombre,
-        Empresa: empresa,
+        Empresa: null,
         Descripcion: descripcion,
-        grupoEmpresarial: empresarial,
+        grupoEmpresarial: null,
         priv: priv
     };
 
