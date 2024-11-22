@@ -54,15 +54,18 @@ const verificar = async () => {
     const existingPosts = document.querySelectorAll(".post");
     console.log(existingPosts)
     existingPosts.forEach((post) => post.remove());
-
+    console.log("aqui")
     // Renderizar cada publicación
     posts.forEach((post) => {
+      console.log("aqui2")
       addPostToDOM(post);
     });
+    console.log("aqui3")
   };
 
   // Añadir un post al DOM
   const addPostToDOM = (post) => {
+    console.log("aqui4")
     const postContainer = document.createElement("div");
     postContainer.className = "post";
     postContainer.innerHTML = `
@@ -74,6 +77,7 @@ const verificar = async () => {
       <div id="comentarios-${post._id}" class="comentarios"></div>
     `;
     postListContainer.appendChild(postContainer);
+    console.log("aqui5")
   };
 
   function addSidebarLink(text, href) {
