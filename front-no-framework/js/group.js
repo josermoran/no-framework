@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const publiAmountElement = document.querySelector(".publiNmembernumber");
     const memberAmountElement = document.querySelectorAll(".publiNmembernumber")[1];
     const publicarBtn = document.getElementById("publicarBtn");
+    const token = sessionStorage.getItem('authToken'); 
 
     const grupoId = getGrupoIdFromURL();
 
@@ -124,7 +125,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const tag2 = document.getElementById("tag 2").value;
         const tag3 = document.getElementById("tag 3").value;
         const tag4 = document.getElementById("tag 4").value;
-        console.log(grupoId)
         const tagscontent = [tag1, tag2, tag3, tag4].filter(tag => tag.trim() !== "");
     
         if (!titulo || !texto) {
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const postData = {
           titulo,
           texto,
-          grupo: null,
+          grupo: grupoId,
           tagscontent: tagscontent
         };
     
