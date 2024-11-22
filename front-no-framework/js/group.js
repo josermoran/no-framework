@@ -121,10 +121,10 @@ document.addEventListener("DOMContentLoaded", function () {
     
         const titulo = document.getElementById("new-post-title").value;
         const texto = document.getElementById("new-post-text").value;
-        const tag1 = document.getElementById("tag 1").value;
-        const tag2 = document.getElementById("tag 2").value;
-        const tag3 = document.getElementById("tag 3").value;
-        const tag4 = document.getElementById("tag 4").value;
+        const tag1 = document.getElementById("tag1").value;
+        const tag2 = document.getElementById("tag2").value;
+        const tag3 = document.getElementById("tag3").value;
+        const tag4 = document.getElementById("tag4").value;
         const tagscontent = [tag1, tag2, tag3, tag4].filter(tag => tag.trim() !== "");
     
         if (!titulo || !texto) {
