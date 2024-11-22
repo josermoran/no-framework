@@ -1,7 +1,5 @@
 // creategroup.js
 
-const empresaSelector = document.getElementById("empresaSelector");
-const empresarialCheckbox = document.getElementById("empresarialCheckbox");
 const generalCheckbox = document.getElementById("generalCheckbox");
 const privCheckbox = document.getElementById("privCheckbox");
 const createGroupForm = document.getElementById("createGroupForm");
@@ -40,15 +38,7 @@ const GetGroup = async () => {
 };
 
 // Manejar el cambio de tipo de grupo
-empresarialCheckbox.addEventListener("change", () => {
-    generalCheckbox.checked = !empresarialCheckbox.checked;
-    empresaSelector.disabled = !empresarialCheckbox.checked;
-});
 
-generalCheckbox.addEventListener("change", () => {
-    empresarialCheckbox.checked = !generalCheckbox.checked;
-    empresaSelector.disabled = !empresarialCheckbox.checked;
-});
 
 // Manejar el cierre del formulario
 function handleClose() {
